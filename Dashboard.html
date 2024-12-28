@@ -40,7 +40,7 @@
                     <div class="project_management">ﺇدارة المشاريع</div>
                     <div class="task_management">ﺇدارة المهام</div>
                     <hr>
-                    <div class="Logout">تسجيل الخروج</div>
+                    <a class="Logout" href="index.html">تسجيل الخروج</a>
                 </div>
             </div>
         </header>
@@ -61,7 +61,9 @@
                 <div class="timer-container">
                     <div class="O_timer">
                         <img src="Image/1.Header/Novo Logo - Copy.png" alt="">
-                        <div contenteditable="true">00:00</div>
+                        <div id="Ptimer" class="no">
+                            <span contenteditable="true">00</span>:<span contenteditable="true" class="s">00</span>
+                        </div>
                     </div>
                     <div id="project-selector">
                         <label for="projects">مشروع:</label>
@@ -69,12 +71,16 @@
                             <!-- خيارات المشاريع -->
                         </select>
                     </div>
-                    <button class="stop_start">
-                        <!-- <i class="fa-solid fa-play"></i> -->
-                        <i class="fa-solid fa-pause"></i>
-                    </button>
+                    <div>
+                        <i class="fa-solid fa-rotate-left" ><span>10</span></i>
+                        <button class="stop_start">
+                            <i class="fa-solid fa-pause"></i>
+                        </button>
+                        <i class="fa-solid fa-rotate-right"><span>10</span></i>
+                    </div>
                     <i class="fas fa-plus"></i>
                 </div>
+                <audio id="hiddenAudio" src="Audio/videoplayback.m4a" type="audio/m4a"></audio>
                 <!-- End Timer  -->
                 <!-- Start Task Box  -->
                 <div class="task-container" id="taskContainer">

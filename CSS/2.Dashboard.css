@@ -357,7 +357,7 @@ header .container::after{
 .timer-container img{
     width: 100px;
 }
-[contenteditable="true"]{
+.no{
     font-size: 35px;
 }
 .timer-container .O_timer{
@@ -369,7 +369,8 @@ header .container::after{
     height: 180px;
     border-radius: 50%;
     border: solid 2px black;
-    margin-bottom: 15px;
+    margin: 15px 0;
+    cursor: pointer;
 }
 .timer-container #projects{
     margin-top: 10px;
@@ -380,6 +381,35 @@ header .container::after{
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    cursor: pointer;
+}
+.fa-rotate-left,
+.fa-rotate-right{
+    font-size: 25px;
+    cursor: pointer;
+}
+.fa-rotate-left{
+    margin-right: 25px;
+}
+.fa-rotate-right{
+    margin-left: 25px;
+}
+.fa-rotate-left span,
+.fa-rotate-right span{
+    font-size: 10px;
+}
+.timer-container .fa-plus{
+    transform: translate(120px , 2px);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.timer-container .fa-plus:hover{
+    border: solid 2px black;
 }
 /* Mobail */
 @media (max-width: 767px)  {
@@ -400,22 +430,26 @@ header .container::after{
     margin-bottom: 20px;
 }
 
-  #project-box h3 {
-      margin-bottom: 15px;
-      font-size: 20px;
-      color: #333;
-    }
-    
-    .project {
-        margin-bottom: 15px;
-    }
-    
-    .project h4 {
-        margin: 0;
+#project-box h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+}
+
+.project {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project h4 {
+    margin: 0;
     font-size: 18px;
     color: #444;
+    margin-bottom: -25px;
+    align-self: flex-end;
 }
-  .progress-bar-container {
+.progress-bar-container {
     background-color: #e0e0e0;
     border-radius: 5px;
     overflow: hidden;
@@ -427,32 +461,23 @@ header .container::after{
     height: 100%;
     transition: width 0.3s ease;
 }
-.daily-progress {
+.daily-progress ,
+.projectdeadliine{
     font-size: 14px;
     color: #666;
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
-  }
-  .daily-progress span {
-      font-weight: bold;
-    }
-    .progress-bar {
-        background: linear-gradient(90deg, #4caf50, limeGreen);
-  }
-  .timer-container .fa-plus{
-    transform: translate(120px , 2px);
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
 }
-.timer-container .fa-plus:hover{
-    border: solid 2px black;
+.projectdeadliine{
+    align-self: flex-start;
+    font-weight: bold;
 }
+.daily-progress span {
+    font-weight: bold;
+    margin-top: -5px;
+}
+/* Start Projects*/
 /* Mobail */
 @media (max-width: 767px)  {
     #project-box{
@@ -464,7 +489,7 @@ header .container::after{
     /* End Projects*/
     
     /* Start Team*/
-    .team-progress-box {
+.team-progress-box {
     margin-top: auto;
     background-color: #fff;
     padding: 20px;
