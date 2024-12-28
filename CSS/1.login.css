@@ -74,17 +74,18 @@ header .container img{
     width: 155px;
 	margin-top: 10px;
 }
-header .container button{
-    padding: 10px;
+header .container .Login{
+    padding: 12px;
 	width: 100px;
 	background-color: var(--main-color);
 	color: #fff;
 	border: none;
 	border-radius: 8px;
-	font-size: 15px;
-	cursor:pointer;
+	display: flex;
+	justify-content: center;
+	font-size: 16px;
 }
-header .container button:hover{
+header .container .Login:hover{
 	background-color: #fff;
 	color: var(--main-color);
 	border:solid 1px var(--main-color);
