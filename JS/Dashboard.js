@@ -30,7 +30,7 @@ document.onclick = function() {
 let Logout = document.querySelector(".Logout");
 
 Logout.onclick = function () {
-    location.href = "http://127.0.0.1:5500/index.html"
+    location.href = "https://hamzayalzoubi.github.io/Novo-Team-Maneger/"
 }
 /* End Hedaer */
 
