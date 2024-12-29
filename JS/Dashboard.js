@@ -32,8 +32,43 @@ document.onclick = function() {
 
 /* End Hedaer */
 
-/* Start Timer*/
 
+/* Start Sidebar */
+const sidebarbtn = document.querySelector(".fa-bars");
+const sidebar = document.querySelector(".sidebar");
+const menuItems = document.querySelectorAll('.menu-item');
+const SBsettings = document.querySelectorAll(".SBsettings");
+const Settings_Page = document.querySelector("#Settings_Box");
+
+sidebarbtn.onclick = function (event) {
+  if (sidebar.style.display === 'none') {
+    sidebar.style.display = 'block';
+    event.stopPropagation();
+  } else {
+    sidebar.style.display = 'none';
+  }
+};
+
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    menuItems.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
+
+SBsettings.forEach(setting => {
+  setting.addEventListener('click', () => {
+    Settings_Page.style.display = 'block';
+
+    // Optionally, hide the sidebar when opening the settings page
+    sidebar.style.display = 'none';
+  });
+});
+/* End Sidebar */
+
+
+
+/* Start Timer*/
 document.addEventListener("DOMContentLoaded", () => {
 const btn_stop_start = document.querySelector(".stop_start");
 const btn_stop_start_icon = document.querySelector(".stop_start i");
@@ -127,8 +162,8 @@ updateTimerDisplay(minutes || 0, seconds || 0);
 /* End Timer*/
 
 /* Start Projects*/
-        // Projects Datas
 const projects = [
+
   { name: ':مشروع الاول', progress: 30, dailyProgress: 5, dailyTarget: 10 , deadliine: `${10} يوم` },
   { name: ':المشروع الثاني', progress: 60, dailyProgress: 3, dailyTarget: 8 , deadliine: `${20} يوم`},
   { name: ':المشروع الثالث', progress: 90, dailyProgress: 7, dailyTarget: 7 , deadliine: `${5} يوم` }
@@ -182,7 +217,6 @@ projectContainer.appendChild(projectElement);
 /* Start Settings Page */
 const Settings_close = document.querySelector("#Settings_Box .fa-x")
 const Settings_btn = document.querySelector(".Settings_btn");
-const Settings_Page = document.querySelector("#Settings_Box");
 
 Settings_btn.onclick = function () {
     img_setting.style.display = 'none';  
