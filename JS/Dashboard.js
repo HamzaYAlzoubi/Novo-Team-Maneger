@@ -161,21 +161,21 @@ updateTimerDisplay(minutes || 0, seconds || 0);
 
 /* End Timer*/
 
-/* Start Projects*/
-const projects = [
 
+/* Start Projects Box*/
+const projects = [
+  
   { name: ':مشروع الاول', progress: 30, dailyProgress: 5, dailyTarget: 10 , deadliine: `${10} يوم` },
   { name: ':المشروع الثاني', progress: 60, dailyProgress: 3, dailyTarget: 8 , deadliine: `${20} يوم`},
   { name: ':المشروع الثالث', progress: 90, dailyProgress: 7, dailyTarget: 7 , deadliine: `${5} يوم` }
 ];
-
 const projectContainer = document.getElementById('projects');
 projects.forEach(project => {
-const projectElement = document.createElement('div');
-projectElement.className = 'project';
-
-const projectName = document.createElement('h4');
-projectName.textContent = project.name;
+  const projectElement = document.createElement('div');
+  projectElement.className = 'project';
+  
+  const projectName = document.createElement('h4');
+  projectName.textContent = project.name;
 projectElement.appendChild(projectName);
 
 const projectdeadliine = document.createElement('div');
@@ -206,13 +206,123 @@ dailyProgress.className = 'daily-progress';
 dailyProgress.innerHTML = `
   <span>تم ﺇنجاز: %${project.progress} </span>
   <span>ﺇنجازك اليوم: ${project.dailyProgress} ساعة</span>
-`;
-projectElement.appendChild(dailyProgress);
-
+  `;
+  projectElement.appendChild(dailyProgress);
+  
 projectContainer.appendChild(projectElement);
 });
 
-/* End Projects*/
+/* End Projects Box*/
+
+/* Start Task Box*/
+document.addEventListener('DOMContentLoaded', () => {
+  const taskContainer = document.getElementById('taskContainer');
+  const addTaskBtn = document.getElementById('addTaskBtn');
+  const initialTaskCount = taskContainer.querySelectorAll('.task').length;
+
+  // Function to add a new task
+  const addTask = () => {
+      const newTask = document.createElement('div');
+      newTask.className = 'task';
+      newTask.setAttribute('draggable', 'true');
+      newTask.setAttribute('data-id', Date.now());
+
+      newTask.innerHTML = `
+          <div class="checkbox-wrapper-59">
+              <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+              </label>
+          </div>
+          <span contenteditable="true">New Task</span>
+          <i class="fas fa-trash-alt delete-task"></i>
+      `;
+
+      taskContainer.appendChild(newTask);
+      attachTaskEvents(newTask);
+      updateScrollBehavior();
+  };
+
+  // Function to handle task deletion
+  const deleteTask = (task) => {
+      taskContainer.removeChild(task);
+      updateScrollBehavior();
+  };
+
+  // Function to attach events to a task
+  const attachTaskEvents = (task) => {
+      const deleteIcon = task.querySelector('.delete-task');
+      deleteIcon.addEventListener('click', () => deleteTask(task));
+
+      task.addEventListener('dragstart', (e) => {
+          e.dataTransfer.setData('text/plain', task.dataset.id);
+          task.classList.add('dragging');
+      });
+
+      task.addEventListener('dragend', () => {
+          task.classList.remove('dragging');
+      });
+  };
+
+  // Update scroll behavior
+  const updateScrollBehavior = () => {
+      const taskCount = taskContainer.querySelectorAll('.task').length;
+
+      if (taskCount > initialTaskCount) {
+          taskContainer.style.overflowY = 'hidden';
+          taskContainer.style.maxHeight = '400px';
+      } else {
+          taskContainer.style.overflowY = 'hidden';
+          taskContainer.style.maxHeight = '';
+      }
+  };
+
+  // Show scrollbar on hover
+  taskContainer.addEventListener('mouseenter', () => {
+      if (taskContainer.scrollHeight > taskContainer.clientHeight) {
+          taskContainer.style.overflowY = 'auto';
+      }
+  });
+
+  taskContainer.addEventListener('mouseleave', () => {
+      taskContainer.style.overflowY = 'hidden';
+  });
+
+  // Drag-and-drop functionality remains unchanged
+  taskContainer.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      const draggingTask = document.querySelector('.dragging');
+      const afterElement = getDragAfterElement(taskContainer, e.clientY);
+      if (afterElement == null) {
+          taskContainer.appendChild(draggingTask);
+      } else {
+          taskContainer.insertBefore(draggingTask, afterElement);
+      }
+  });
+
+  // Helper function to find the position to insert dragged element
+  const getDragAfterElement = (container, y) => {
+      const draggableElements = [...container.querySelectorAll('.task:not(.dragging)')];
+
+      return draggableElements.reduce((closest, child) => {
+          const box = child.getBoundingClientRect();
+          const offset = y - box.top - box.height / 2;
+          if (offset < 0 && offset > closest.offset) {
+              return { offset: offset, element: child };
+          } else {
+              return closest;
+          }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+  };
+
+  // Add click event to "Add Task" button
+  addTaskBtn.addEventListener('click', addTask);
+
+  // Attach events to existing tasks
+  document.querySelectorAll('.task').forEach((task) => attachTaskEvents(task));
+});
+
+/* End Task Box*/
 
 /* Start Settings Page */
 const Settings_close = document.querySelector("#Settings_Box .fa-x")
