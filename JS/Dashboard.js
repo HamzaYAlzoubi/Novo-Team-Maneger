@@ -1,73 +1,55 @@
-/* Start Hedaer */
+/* Start Projects Box*/
+const projects = [
 
-const headerimg = document.querySelector(".Profile_img");
-const img_setting = document.querySelector(".img_setting");
+{ name: ':مشروع الاول', progress: 30, dailyProgress: 5, dailyTarget: 10 , deadliine: `${10} يوم` },
+{ name: ':المشروع الثاني', progress: 60, dailyProgress: 3, dailyTarget: 8 , deadliine: `${20} يوم`},
+{ name: ':المشروع الثالث', progress: 90, dailyProgress: 7, dailyTarget: 7 , deadliine: `${5} يوم` }
+];
+const projectContainer = document.getElementById('projects');
+projects.forEach(project => {
+const projectElement = document.createElement('div');
+projectElement.className = 'project';
 
-// img_setting show on click
-headerimg.onclick = function (event) {
-  notification_box.style.display = 'none';  
-  if (img_setting.style.display === 'none') {
-    img_setting.style.display = 'flex';
-    event.stopPropagation();
-  }
-};
-const notification = document.querySelector(".notification");
-const notification_box = document.querySelector(".notification_box");
+const projectName = document.createElement('h4');
+projectName.textContent = project.name;
+projectElement.appendChild(projectName);
 
-// notification show on click
-notification.onclick = function (event) {
-  img_setting.style.display = 'none';    
-  if (notification_box.style.display === 'none') {
-      notification_box.style.display = 'flex';
-      event.stopPropagation();
-    }
-  };
-const audio = document.getElementById('hiddenAudio');
-// close notification & img_setting.
-document.onclick = function() {
-    notification_box.style.display = 'none';  
-    img_setting.style.display = 'none';  
-    audio.pause();
+const projectdeadliine = document.createElement('div');
+projectdeadliine.className = "projectdeadliine";
+projectdeadliine.textContent = `موعد التسليم: ${project.deadliine}`;
+projectElement.appendChild(projectdeadliine);
+
+const progressBarContainer = document.createElement('div');
+progressBarContainer.className = 'progress-bar-container';
+const progressBar = document.createElement('div');
+progressBar.className = 'progress-bar';
+progressBar.style.width = `${project.progress}%`;
+
+// تغيير اللون بناءً على نسبة الإنجاز
+if (project.progress < 31) {
+progressBar.style.backgroundColor = 'red'; // أحمر
+} else if (project.progress < 61) {
+progressBar.style.backgroundColor = 'green'; // أصفر
+} else {
+progressBar.style.backgroundColor = 'rgb(10, 218, 10)'; // أخضر
 }
 
-/* End Hedaer */
+progressBarContainer.appendChild(progressBar);
+projectElement.appendChild(progressBarContainer);
 
+const dailyProgress = document.createElement('div');
+dailyProgress.className = 'daily-progress';
+dailyProgress.innerHTML = `
+<span>تم ﺇنجاز: %${project.progress} </span>
+<span>ﺇنجازك اليوم: ${project.dailyProgress} ساعة</span>
+`;
+projectElement.appendChild(dailyProgress);
 
-/* Start Sidebar */
-const sidebarbtn = document.querySelector(".fa-bars");
-const sidebar = document.querySelector(".sidebar");
-const menuItems = document.querySelectorAll('.menu-item');
-const SBsettings = document.querySelectorAll(".SBsettings");
-const Settings_Page = document.querySelector("#Settings_Box");
-
-sidebarbtn.onclick = function (event) {
-  if (sidebar.style.display === 'none') {
-    sidebar.style.display = 'block';
-    event.stopPropagation();
-  } else {
-    sidebar.style.display = 'none';
-  }
-};
-
-menuItems.forEach(item => {
-  item.addEventListener('click', () => {
-    menuItems.forEach(i => i.classList.remove('active'));
-    item.classList.add('active');
-  });
+projectContainer.appendChild(projectElement);
 });
 
-SBsettings.forEach(setting => {
-  setting.addEventListener('click', () => {
-    Settings_Page.style.display = 'block';
-
-    // Optionally, hide the sidebar when opening the settings page
-    sidebar.style.display = 'none';
-  });
-});
-/* End Sidebar */
-
-
-
+/* End Projects Box*/
+  
 /* Start Timer*/
 document.addEventListener("DOMContentLoaded", () => {
 const btn_stop_start = document.querySelector(".stop_start");
@@ -75,6 +57,8 @@ const btn_stop_start_icon = document.querySelector(".stop_start i");
 const ptimer = document.querySelector("#Ptimer");
 const rotate_left = document.querySelector(".fa-rotate-left");
 const rotate_right = document.querySelector(".fa-rotate-right");
+const audio = document.getElementById('hiddenAudio');
+
 
 let intervalId = null; // للتحكم في التايمر
 let isRunning = false; // لمعرفة حالة التايمر (يعمل أو متوقف)
@@ -160,59 +144,6 @@ updateTimerDisplay(minutes || 0, seconds || 0);
 });
 
 /* End Timer*/
-
-
-/* Start Projects Box*/
-const projects = [
-  
-  { name: ':مشروع الاول', progress: 30, dailyProgress: 5, dailyTarget: 10 , deadliine: `${10} يوم` },
-  { name: ':المشروع الثاني', progress: 60, dailyProgress: 3, dailyTarget: 8 , deadliine: `${20} يوم`},
-  { name: ':المشروع الثالث', progress: 90, dailyProgress: 7, dailyTarget: 7 , deadliine: `${5} يوم` }
-];
-const projectContainer = document.getElementById('projects');
-projects.forEach(project => {
-  const projectElement = document.createElement('div');
-  projectElement.className = 'project';
-  
-  const projectName = document.createElement('h4');
-  projectName.textContent = project.name;
-projectElement.appendChild(projectName);
-
-const projectdeadliine = document.createElement('div');
-projectdeadliine.className = "projectdeadliine";
-projectdeadliine.textContent = `موعد التسليم: ${project.deadliine}`;
-projectElement.appendChild(projectdeadliine);
-
-const progressBarContainer = document.createElement('div');
-progressBarContainer.className = 'progress-bar-container';
-const progressBar = document.createElement('div');
-progressBar.className = 'progress-bar';
-progressBar.style.width = `${project.progress}%`;
-
-// تغيير اللون بناءً على نسبة الإنجاز
-if (project.progress < 31) {
-  progressBar.style.backgroundColor = 'red'; // أحمر
-} else if (project.progress < 61) {
-  progressBar.style.backgroundColor = 'green'; // أصفر
-} else {
-  progressBar.style.backgroundColor = 'rgb(10, 218, 10)'; // أخضر
-}
-
-progressBarContainer.appendChild(progressBar);
-projectElement.appendChild(progressBarContainer);
-
-const dailyProgress = document.createElement('div');
-dailyProgress.className = 'daily-progress';
-dailyProgress.innerHTML = `
-  <span>تم ﺇنجاز: %${project.progress} </span>
-  <span>ﺇنجازك اليوم: ${project.dailyProgress} ساعة</span>
-  `;
-  projectElement.appendChild(dailyProgress);
-  
-projectContainer.appendChild(projectElement);
-});
-
-/* End Projects Box*/
 
 /* Start Task Box*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -323,17 +254,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* End Task Box*/
-
-/* Start Settings Page */
-const Settings_close = document.querySelector("#Settings_Box .fa-x")
-const Settings_btn = document.querySelector(".Settings_btn");
-
-Settings_btn.onclick = function () {
-    img_setting.style.display = 'none';  
-    Settings_Page.style.display = 'block';
-};
-Settings_close.onclick = function () {
-    Settings_Page.style.display = 'none';  ;
-};
-
-/* End Settings Page */
