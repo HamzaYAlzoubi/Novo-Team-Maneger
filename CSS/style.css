@@ -71,7 +71,7 @@ header .container{
     justify-content: space-between;
     position: relative;
 }
-header  .fa-bars{
+header .fa-bars{
     margin-left: 100px;
     font-size: 25px;
     cursor: pointer;
@@ -238,7 +238,7 @@ header .container::after{
     width: 70%;
     min-height: 650px;
     top: 50px;
-    z-index: 1;
+    z-index: 9999;
     background-color: #fff;
     box-shadow: 0 0px 100px #aaa;
     display: none;
@@ -381,7 +381,6 @@ header .container::after{
     padding: 20px;
     position: absolute;
     z-index: 2;
-    display: none;
 }
 .logo {
     display: flex;

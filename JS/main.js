@@ -33,13 +33,14 @@ document.onclick = function() {
 }
 // on & off gettings page.
 Settings_btn.onclick = function () {
-    Settings_Page.style.display = 'block';
-    if (sidebar.style.display === 'block') {
-      sidebar.style.display = 'none';
-    }
+  Settings_Page.style.display = 'block';
+  if (sidebar.style.display === 'block') {
+    sidebar.style.display = 'none';
+  }
 };
 Settings_close.onclick = function () {
-    Settings_Page.style.display = 'none';
+  Settings_Page.style.display = 'none';
+  sidebar.style.display = 'block';
 };
 /* End Hedaer */
 
