@@ -50,9 +50,9 @@ const sidebar = document.querySelector(".sidebar");
 const menuItems = document.querySelectorAll('.menu-item');
 const SBsettings = document.querySelectorAll(".SBsettings");
 
-window.onscroll = function () {
-  sidebar.style.display = 'none';
-}
+// window.onscroll = function () {
+//   sidebar.style.display = 'none';
+// }
 sidebarbtn.onclick = function (event) {
   if (sidebar.style.display === 'none') {
     sidebar.style.display = 'block';

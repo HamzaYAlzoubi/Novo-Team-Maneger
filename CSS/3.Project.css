@@ -1,15 +1,12 @@
 body {
-background-color: #f2f4f7;
-}
-
-header{
-    background-color: #fff;
+    background-color: #f2f4f7;
 }
 .containerbtn{
     display: flex;
     justify-content: flex-end;
-    margin-top: 30px;
+    margin-top: 130px;
 }
+
 .add_project{
     background: #000;
     color: #fff;
@@ -19,13 +16,15 @@ header{
     align-self: flex-end;
     border-radius: 50px;
     border:1px solid #CCC ; 
+    margin-right: 50px;
 }
- .container .add_project:hover{
+.container .add_project:hover{
     background: #fff;
     color: #000;
 }
-.container{
-    padding-left: 80px;
+.container_projects{
+    padding-left: 100px;
+    margin-top: 10px;
 }
 .containerr {
 width: 90%;
@@ -34,6 +33,7 @@ background-color: white;
 border-radius: 8px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 overflow: hidden;
+
 }
 .headerr {
 display: flex;
@@ -162,4 +162,21 @@ color: white;
 
 .pagination a:hover {
 background-color: #e0e0e0;
+}
+/* ---- */
+.main_project{
+transform: translateY(-10px);
+}
+ td img{
+    width: 30px;
+    border-radius: 50%;
+    margin-left: -15px;
+}
+.box_td_img{
+    background-color: #4caf50;
+}
+tbody td .box_td_img img{
+    width: 30px;
+    border-radius: 50%;
+    margin-left: -15px;
 }

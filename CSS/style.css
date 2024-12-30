@@ -31,7 +31,6 @@ a{
     text-decoration: none;
     color: #000;
 }
-
   /* Mobail */
 @media (max-width: 767px)  {
 .container {
@@ -64,6 +63,11 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
+    position:fixed;
+    width: 100%;
+    z-index: 9;
+    top: 0;
 }
 header .container{
     display: flex;
@@ -379,7 +383,7 @@ header .container::after{
     display: flex;
     flex-direction: column;
     padding: 20px;
-    position: absolute;
+    position: fixed;
     z-index: 2;
 }
 .logo {
