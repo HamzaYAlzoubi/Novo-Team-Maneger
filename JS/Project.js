@@ -34,8 +34,8 @@ min_project.innerHTML = `            <tbody class="min_project">
                     <td>بناء موقع للشركة<br><small>حمزة الزعبي</small></td>
                     <div>
                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
+                            <img src="Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
+                            <img src="Image/2.Dashboard/Work Team/Omar.jpg" alt="">
                         </td>
                     </div>
                     <td><span class="status active">مكتمل</span></td>
