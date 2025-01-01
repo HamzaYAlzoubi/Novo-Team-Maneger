@@ -19,6 +19,7 @@
     <title>Novo Team Manager | Project</title>
 </head>
 <body>
+
     <!-- Start Header-->
     <header id="header">
         <i class="fa-solid fa-bars flex-center"></i>
@@ -47,7 +48,6 @@
         </div>
     </header>
     <!-- Start Header-->
-
     
     <!-- Start Settings Page -->
     <div class="container main_settings">
@@ -141,575 +141,78 @@
     </nav>
     <!-- End Sidebar -->
      
-    <!-- Start Page-->
-     <div class="container containerbtn">
-         <button class="add_project">+ Add Project</button>
-     </div>
-     <div class="container container_projects">
-         <div class="containerr">
-             <div class="headerr">
-                 <h1><i class="fa-solid fa-caret-down"></i> All Projects <span class="counter">124</span></h1>
-                 <div class="filters">
-             <input type="text" placeholder="Search by project name, status...">
-             <select>
-               <option>Filter by Client</option>
-             </select>
-             <select>
-                 <option>Filter by Assignee</option>
-             </select>
-             <select>
-               <option>Filter by Date</option>
-             </select>
-             </div>
-             </div>
-         <table>
-             <thead class="main_project">
-                 <tr>
-                 <th>Num</th>
-                 <th>Project & Customer</th>
-                 <th>Assigned to</th>
-                 <th>% Complete</th>
-                 <th>Status</th>
-                 <th>Due Date</th>
-                 <th>Total Value ($)</th>
-                 <th>Actions</th>
-                 </tr>
-             </thead>
-             <thead>
-                 <tr>
-                 <th>المشروع الاول  <i class="fa-solid fa-angle-right"></i></th>
-                 <th>Project & Customer</th>
-                 <th>Assigned to</th>
-                 <th>% Complete</th>
-                 <th>Status</th>
-                 <th>Due Date</th>
-                 <th>Total Value ($)</th>
-                 <th>Actions</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
+<!-- Start Page-->
+<div class="container containerbtn">
+    <button class="add_project">+ Add Project</button>
+</div>
+<div class="container container_projects">
+    <div class="containerr">
+        <div class="headerr">
+            <h1><i class="fa-solid fa-caret-down"></i> All Projects <span class="counter">124</span></h1>
+            <div class="filters">
+                <input type="text" placeholder="Search by project name, status...">
+                <select>
+                    <option>Filter by Client</option>
+                </select>
+                <select>
+                    <option>Filter by Assignee</option>
+                </select>
+                <select>
+                    <option>Filter by Date</option>
+                </select>
+            </div>
+        </div>
+        <table>
+            <thead class="menu_project">
+                <tr>
+                    <th>الرقم</th>
+                    <th>اسم المشروع/ اسم العميل</th>
+                    <th>المكلفين به</th>
+                    <th>الحالة</th>
+                    <th>% الإكتمال</th>
+                    <th>تاريخ التسليم</th>
+                    <th>صافي الربح</th>
+                    <th>ﺇضافة/تقييم</th>
+                </tr>
+            </thead>
+            <thead class="project">
+            </thead>
+            <tbody class="min_project">
+                <tr>
+                    <td>1</td>
+                    <td>بناء موقع للشركة<br><small>حمزة الزعبي</small></td>
+                    <div>
+                        <td>
                             <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
                             <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <thead>
-                 <tr>
-                 <th>المشروع الثاني <i class="fa-solid fa-angle-right"></i></th>
-                 <th>Project & Customer</th>
-                 <th>Assigned to</th>
-                 <th>% Complete</th>
-                 <th>Status</th>
-                 <th>Due Date</th>
-                 <th>Total Value ($)</th>
-                 <th>Actions</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 90%;"></span></div>
-                             90%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-         </table>
-         <div class="pagination">
-             <a href="#">1</a>
-             <a href="#" class="active">2</a>
-             <a href="#">3</a>
-             <a href="#">4</a>
-             <a href="#">5</a>
-         </div>
-         </div>
-         <div class="containerr">
-             <div class="headerr">
-                 <h1><i class="fa-solid fa-caret-down"></i> In Progress <span class="counter">124</span></h1>
-                 <div class="filters">
-             <input type="text" placeholder="Search by project name, status...">
-             <select>
-               <option>Filter by Client</option>
-             </select>
-             <select>
-                 <option>Filter by Assignee</option>
-             </select>
-             <select>
-               <option>Filter by Date</option>
-             </select>
-             </div>
-             </div>
-         <table>
-             <thead class="main_project">
-                 <tr>
-                 <th>Num</th>
-                 <th>Project & Customer</th>
-                 <th>Assigned to</th>
-                 <th>% Complete</th>
-                 <th>Status</th>
-                 <th>Due Date</th>
-                 <th>Total Value ($)</th>
-                 <th>Actions</th>
-                 </tr>
-             </thead>
-             <thead>
-                 <tr>
-                 <th>المشروع الاول  <i class="fa-solid fa-angle-right"></i></th>
-                 <th>Project & Customer</th>
-                 <th>Assigned to</th>
-                 <th>% Complete</th>
-                 <th>Status</th>
-                 <th>Due Date</th>
-                 <th>Total Value ($)</th>
-                 <th>Actions</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 90%;"></span></div>
-                             90%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-         </table>
-         <div class="pagination">
-             <a href="#">1</a>
-             <a href="#" class="active">2</a>
-             <a href="#">3</a>
-             <a href="#">4</a>
-             <a href="#">5</a>
-         </div>
-         </div>
-         <div class="containerr">
-             <div class="headerr">
-                 <h1><i class="fa-solid fa-caret-down"></i> Completed <span class="counter">124</span></h1>
-                 <div class="filters">
-             <input type="text" placeholder="Search by project name, status...">
-             <select>
-               <option>Filter by Client</option>
-             </select>
-             <select>
-                 <option>Filter by Assignee</option>
-             </select>
-             <select>
-               <option>Filter by Date</option>
-             </select>
-             </div>
-             </div>
-         <table>
-             <thead class="main_project">
-                 <tr>
-                 <th>Num</th>
-                 <th>Project & Customer</th>
-                 <th>Assigned to</th>
-                 <th>% Complete</th>
-                 <th>Status</th>
-                 <th>Due Date</th>
-                 <th>Total Value ($)</th>
-                 <th>Actions</th>
-                 </tr>
-             </thead>
-             <thead>
-                 <tr>
-                 <th>المشروع الاول  <i class="fa-solid fa-angle-right"></i></th>
-                 <th>Project & Customer</th>
-                 <th>Assigned to</th>
-                 <th>% Complete</th>
-                 <th>Status</th>
-                 <th>Due Date</th>
-                 <th>Total Value ($)</th>
-                 <th>Actions</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 90%;"></span></div>
-                             90%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-             <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>Plumbing Installation<br><small>Cody Fisher</small></td>
-                     <div>
-                         <td>
-                            <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                            <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-                         </td>
-                     </div>
-                     <td>
-                         <div class="progress">
-                             <div class="progress-bar"><span style="width: 60%;"></span></div>
-                             60%
-                         </div>
-                     </td>
-                     <td><span class="status active">Active</span></td>
-                     <td>16/08/23</td>
-                     <td>$87,500.00</td>
-                     <td><button>Details</button></td>
-                 </tr>
-             <!-- Add other rows here following the same structure -->
-             </tbody>
-         </table>
-         <div class="pagination">
-             <a href="#">1</a>
-             <a href="#" class="active">2</a>
-             <a href="#">3</a>
-             <a href="#">4</a>
-             <a href="#">5</a>
-         </div>
-         </div>
-     </div>
-    <!-- Start Page-->
+                        </td>
+                    </div>
+                    <td><span class="status active">مكتمل</span></td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar"><span style="width: 60%;"></span></div>
+                            60%
+                        </div>
+                    </td>
+                    <td>16/08/23</td>
+                    <td>100$</td>
+                    <td><button>تفاصيل</button></td>
+                </tr>
+            </tbody>
+            <!-- اضافة مشاريع صغرة هنا -->
+        </table>
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+        </div>
+    </div>
+</div>
+<!-- Start Page-->
+
 <script src="JS/main.js"></script>
+<script src="JS/Project.js"></script>
 </body>
 </html>

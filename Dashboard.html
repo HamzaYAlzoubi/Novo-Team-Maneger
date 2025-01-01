@@ -1,283 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- normalize CSS -->
-        <link rel="stylesheet" href="CSS/normalize.css">
-        <!-- Google Font -->
-        <style>@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');</style>
-        <!-- Font Awesome Library -->
-        <link rel="stylesheet" href="CSS/all.min.css">
-        <!-- my_framework -->
-        <link rel="stylesheet" href="CSS/framework.css">
-        <!-- Icon for Page -->
-        <link rel="Icon" href="Image/1.Header/Novo Logo Icon page.png">
-        <!-- CSS files -->
-        <link rel="stylesheet" href="CSS/style.css">
-        <link rel="stylesheet" href="CSS/2.Dashboard.css">
-        <title>Novo Team Manager | Dashboard</title>
-    </head>
-    <body>
-        <!-- Start Header-->
-        <header id="header">
-            <i class="fa-solid fa-bars flex-center"></i>
-            <div class="container">
-                <a href="#"><img id="Logo" src="Image/1.Header/Novo Logo.png" alt=""></a>
-                <div></div>
-                <i class="fa-regular fa-bell fa-lg notification">
-                    <div class="notification_box">
-                        <span>التنبيهات</span>
-                        <label>
-                            <input class="toggle-checkbox" type="checkbox">
-                            <div  class="toggle-switch"></div>
-                        </label>
-                    </div>
-                </i>
-                <img class="Profile_img" src="Image/2.Dashboard/Work Team/Profile img.png">
-                <div class="img_setting">
-                    <img class="Profile_img" src="Image/2.Dashboard/Work Team/Profile img.png">
-                    <div class="profile_name">حمزة بن يحيى الزعبي</div>
-                    <div class="Settings_btn">ﺇعدادات</div>
-                    <div class="project_management">ﺇدارة المشاريع</div>
-                    <div class="task_management">ﺇدارة المهام</div>
-                    <hr>
-                    <a class="Logout" href="index.html">تسجيل الخروج</a>
-                </div>
-            </div>
-        </header>
-        <!-- Start Header-->
-    <main>
-        <!-- Start Dashboard-->
-        <section class="Dashboard">
-            <!-- Start Sidebar -->
-            <nav class="sidebar">
-                <div class="logo">
-                    <img src="Image/1.Header/Novo Logo Icon page.png" alt="">
-                  <span class="logo-icon">Novo</span>
-                </div>
-                <ul class="menu">
-                  <li class="menu-item active Dashboard_page">
-                    <i class="fa-solid fa-gauge icon"></i>
-                    <span>لوحة التحكم</span>
-                  </li>
-                  <li class="menu-item Projects_page">
-                    <i class="fa-solid fa-folder-open icon"></i><span>ﺇدارة المشاريع</span>
-                    <span class="badge">3/5</span>
-                  </li>
-                  <li class="menu-item Tasks_Page">
-                    <i class="fa-solid fa-list-check icon"></i>
-                    <span>ﺇدارة المهام</span>
-                  </li>
-                  <li class="menu-item Repoets_page">
-                    <i class="fa-solid fa-file-lines icon"></i>
-                    <span>التقارير</span>
-                    <span class="new-badge">New</span>
-                  </li>
-                  <li class="menu-item Messages_page">
-                    <i class="fa-solid fa-envelope icon"></i>
-                    <span>رسائل التواصل</span>
-                  </li>
-                  <hr>
-                  <li class="menu-item DownSB icon Suggestions_page">
-                    <i class="fa-solid fa-toolbox icon"></i><span>صندوق الاقتراحات</span>
-                    <span class="badge">164</span>
-                  </li>
-                  <li class="menu-item DownSB SBsettings icon">
-                    <i class="fa-solid fa-gear icon"></i>
-                    <span>ﺇعدادات</span>
-                  </li>
-                </ul>
-            </nav>
-             <!-- End Sidebar -->
-              
-            <div class="container">
-                <!-- Start Projects  -->
-                <div id="project-box">
-                    <h3>مشاريعي الحالية</h3>
-                    <div id="projects">
-                        <!-- يتم ملء المشاريع ديناميكيًا هنا -->
-                    </div>
-                </div>   
-                <!-- End Projects  -->
-                <!-- Start Timer  -->
-                <div class="timer-container">
-                    <div class="O_timer">
-                        <img src="Image/1.Header/Novo Logo - Copy.png" alt="">
-                        <div id="Ptimer" class="no">
-                            <span contenteditable="true">00</span>:<span contenteditable="true" class="s">00</span>
-                        </div>
-                    </div>
-                    <div id="project-selector">
-                        <label for="projects">مشروع:</label>
-                        <select id="projects" placeholder="ss">
-                            <!-- خيارات المشاريع -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize CSS -->
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <!-- Google Font -->
+    <style>@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");</style>
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <!-- my_framework -->
+    <link rel="stylesheet" href="CSS/framework.css" />
+    <!-- Icon for Page -->
+    <link rel="Icon" href="Image/1.Header/Novo Logo Icon page.png" />
+    <!-- CSS files -->
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/2.Dashboard.css" />
+    <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+  </head>
+    <title>Novo Team Manager | Dashboard</title>
+  </head>
+  <body>
+    <!-- Start Header-->
+    <header id="header">
+      <i class="fa-solid fa-bars flex-center"></i>
+      <div class="container">
+        <a href="#"
+          ><img id="Logo" src="Image/1.Header/Novo Logo.png" alt=""
+        /></a>
+        <div></div>
+        <i class="fa-regular fa-bell fa-lg notification">
+          <div class="notification_box">
+            <span>التنبيهات</span>
+            <label>
+              <input class="toggle-checkbox" type="checkbox" />
+              <div class="toggle-switch"></div>
+            </label>
+          </div>
+        </i>
+        <img
+          class="Profile_img"
+          src="Image/2.Dashboard/Work Team/Profile img.png" />
+        <div class="img_setting">
+          <img
+            class="Profile_img"
+            src="Image/2.Dashboard/Work Team/Profile img.png" />
+          <div class="profile_name">حمزة بن يحيى الزعبي</div>
+          <div class="Settings_btn">ﺇعدادات</div>
+          <div class="project_management">ﺇدارة المشاريع</div>
+          <div class="task_management">ﺇدارة المهام</div>
+          <hr />
+          <a class="Logout" href="index.html">تسجيل الخروج</a>
+        </div>
+      </div>
+    </header>
+    <!-- End Header-->
 
-                        </select>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-rotate-left" ><span>10</span></i>
-                        <button class="stop_start">
-                            <i class="fa-solid fa-pause"></i>
-                        </button>
-                        <i class="fa-solid fa-rotate-right"><span>10</span></i>
-                    </div>
-                    <i class="fas fa-plus"></i>
+    <main>
+      <!-- Start Dashboard-->
+      <section class="Dashboard">
+        <!-- Start Sidebar -->
+        <nav class="sidebar">
+          <div class="logo">
+            <img src="Image/1.Header/Novo Logo Icon page.png" alt="" />
+            <span class="logo-icon">Novo</span>
+          </div>
+          <ul class="menu">
+            <li class="menu-item active Dashboard_page">
+              <i class="fa-solid fa-gauge icon"></i>
+              <span>لوحة التحكم</span>
+            </li>
+            <li class="menu-item Projects_page">
+              <i class="fa-solid fa-folder-open icon"></i
+              ><span>ﺇدارة المشاريع</span>
+              <span class="badge">3/5</span>
+            </li>
+            <li class="menu-item Tasks_Page">
+              <i class="fa-solid fa-list-check icon"></i>
+              <span>ﺇدارة المهام</span>
+            </li>
+            <li class="menu-item Repoets_page">
+              <i class="fa-solid fa-file-lines icon"></i>
+              <span>التقارير</span>
+              <span class="new-badge">New</span>
+            </li>
+            <li class="menu-item Messages_page">
+              <i class="fa-solid fa-envelope icon"></i>
+              <span>رسائل التواصل</span>
+            </li>
+            <hr />
+            <li class="menu-item DownSB icon Suggestions_page">
+              <i class="fa-solid fa-toolbox icon"></i
+              ><span>صندوق الاقتراحات</span>
+              <span class="badge">164</span>
+            </li>
+            <li class="menu-item DownSB SBsettings icon">
+              <i class="fa-solid fa-gear icon"></i>
+              <span>ﺇعدادات</span>
+            </li>
+          </ul>
+        </nav>
+        <!-- End Sidebar -->
+        <div class="container">
+          <!-- Start Projects  -->
+          <div id="project-box">
+            <h3>مشاريعي الحالية</h3>
+            <div id="projects">
+              <!-- يتم ملء المشاريع ديناميكيًا هنا -->
+            </div>
+          </div>
+          <!-- End Projects  -->
+          <!-- Start Timer  -->
+          <div class="timer-container">
+            <div class="O_timer">
+              <img src="Image/1.Header/Novo Logo - Copy.png" alt="" />
+              <div id="Ptimer" class="no">
+                <span contenteditable="true">00</span>:<span
+                  contenteditable="true"
+                  class="s"
+                  >00</span
+                >
+              </div>
+            </div>
+            <div id="project-selector">
+              <label for="projects">مشروع:</label>
+              <select id="projects" placeholder="ss">
+                <!-- خيارات المشاريع -->
+              </select>
+            </div>
+            <div>
+              <i class="fa-solid fa-rotate-left"><span>10</span></i>
+              <button class="stop_start">
+                <i class="fa-solid fa-pause"></i>
+              </button>
+              <i class="fa-solid fa-rotate-right"><span>10</span></i>
+            </div>
+            <i class="fas fa-plus"></i>
+          </div>
+          <audio
+            id="hiddenAudio"
+            src="Audio/videoplayback.m4a"
+            type="audio/m4a">
+          </audio>
+          <!-- End Timer  -->
+          <!-- Start Task Box  -->
+          <div class="task-container" id="taskContainer">
+            <div class="add-task-btn" id="addTaskBtn">
+              <i class="fas fa-plus"></i>
+              Add Task
+            </div>
+            <div class="task" draggable="true" data-id="1">
+              <div class="checkbox-wrapper-59">
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <span contenteditable="true">Task 1</span>
+              <i class="fas fa-trash-alt delete-task"></i>
+            </div>
+            <div class="task" draggable="true" data-id="1">
+              <div class="checkbox-wrapper-59">
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <span contenteditable="true">Task 1</span>
+              <i class="fas fa-trash-alt delete-task"></i>
+            </div>
+            <div class="task" draggable="true" data-id="1">
+              <div class="checkbox-wrapper-59">
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <span contenteditable="true">Task 1</span>
+              <i class="fas fa-trash-alt delete-task"></i>
+            </div>
+            <div class="task" draggable="true" data-id="2">
+              <div class="checkbox-wrapper-59">
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <span contenteditable="true">Task 2</span>
+              <i class="fas fa-trash-alt delete-task"></i>
+            </div>
+            <div class="task" draggable="true" data-id="3">
+              <div class="checkbox-wrapper-59">
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <span contenteditable="true">Task 3</span>
+              <i class="fas fa-trash-alt delete-task"></i>
+            </div>
+          </div>
+          <!-- End Task Box  -->
+          <!-- Start Work Team  -->
+          <div class="team-progress-box">
+            <div class="team-member">
+              <img
+                src="Image/2.Dashboard/Work Team/Omar.jpg"
+                alt="Profile Picture"
+                class="profile-pic" />
+              <div class="member-info">
+                <h4>عمر عبده</h4>
+                <div class="progress-info">
+                  <p>ﺇنجاز اليوم: <span>5 ساعات</span></p>
                 </div>
-                <audio id="hiddenAudio" src="Audio/videoplayback.m4a" type="audio/m4a"></audio>
-                <!-- End Timer  -->
-                <!-- Start Task Box  -->
-                <div class="task-container" id="taskContainer">
-                    <div class="add-task-btn" id="addTaskBtn">
-                        <i class="fas fa-plus"></i>
-                        Add Task
-                    </div>
-                    <div class="task" draggable="true" data-id="1">
-                        <div class="checkbox-wrapper-59">
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        <span contenteditable="true">Task 1</span>
-                        <i class="fas fa-trash-alt delete-task"></i>
-                    </div>
-                    <div class="task" draggable="true" data-id="1">
-                        <div class="checkbox-wrapper-59">
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        <span contenteditable="true">Task 1</span>
-                        <i class="fas fa-trash-alt delete-task"></i>
-                    </div>
-                    <div class="task" draggable="true" data-id="1">
-                        <div class="checkbox-wrapper-59">
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        <span contenteditable="true">Task 1</span>
-                        <i class="fas fa-trash-alt delete-task"></i>
-                    </div>
-                    <div class="task" draggable="true" data-id="2">
-                        <div class="checkbox-wrapper-59">
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        <span contenteditable="true">Task 2</span>
-                        <i class="fas fa-trash-alt delete-task"></i>
-                    </div>
-                    <div class="task" draggable="true" data-id="3">
-                        <div class="checkbox-wrapper-59">
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider"></span>
-                            </label>
-                        </div>
-                        <span contenteditable="true">Task 3</span>
-                        <i class="fas fa-trash-alt delete-task"></i>
-                    </div>
+              </div>
+            </div>
+            <div class="team-member">
+              <img
+                src="Image/2.Dashboard/Work Team/Mohamed S.jpg"
+                alt="Profile Picture"
+                class="profile-pic" />
+              <div class="member-info">
+                <h4>محمد صفطي</h4>
+                <div class="progress-info">
+                  <p>ﺇنجاز اليوم: <span>4 ساعات</span></p>
                 </div>
-                <!-- End Task Box  -->
-                <!-- Start Work Team  -->
-                <div class="team-progress-box">
-                    <div class="team-member">
-                      <img src="Image/2.Dashboard/Work Team/Omar.jpg" alt="Profile Picture" class="profile-pic">
-                      <div class="member-info">
-                        <h4>عمر عبده</h4>
-                        <div class="progress-info">
-                            <p>ﺇنجاز اليوم: <span>5 ساعات</span></p>
-                        </div>
-                    </div>
+              </div>
+            </div>
+            <div class="team-member">
+              <img
+                src="Image/2.Dashboard/Work Team/Amjad.jpg"
+                alt="Profile Picture"
+                class="profile-pic" />
+              <div class="member-info">
+                <h4>أمجد السيد</h4>
+                <div class="progress-info">
+                  <p>ﺇنجاز اليوم: <span>6 ساعات</span></p>
                 </div>
-                    <div class="team-member">
-                      <img src="Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="Profile Picture" class="profile-pic">
-                      <div class="member-info">
-                          <h4>محمد صفطي</h4>
-                          <div class="progress-info">
-                          <p>ﺇنجاز اليوم: <span>4 ساعات</span></p>
-                        </div>
-                    </div>
+              </div>
+            </div>
+            <div class="team-member">
+              <img
+                src="Image/2.Dashboard/Work Team/Profile img.png"
+                alt="Profile Picture"
+                class="profile-pic" />
+              <div class="member-info">
+                <h4>حمزة بن يحيى الزعبي</h4>
+                <div class="progress-info">
+                  <p>ﺇنجاز اليوم: <span>6 ساعات</span></p>
                 </div>
-                <div class="team-member">
-                    <img src="Image/2.Dashboard/Work Team/Amjad.jpg" alt="Profile Picture" class="profile-pic">
-                    <div class="member-info">
-                        <h4>أمجد السيد</h4>
-                        <div class="progress-info">
-                            <p>ﺇنجاز اليوم: <span>6 ساعات</span></p>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="team-member">
-                      <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="Profile Picture" class="profile-pic">
-                      <div class="member-info">
-                          <h4>حمزة بن يحيى الزعبي</h4>
-                          <div class="progress-info">
-                              <p>ﺇنجاز اليوم: <span>6 ساعات</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- أضف المزيد من الأعضاء هنا -->
+              </div>
+            </div>
+            <!-- أضف المزيد من الأعضاء هنا -->
+          </div>
+          <!-- End Work Team  -->
+        </div>
+      </section>
+      <!-- End Dashboard-->
+
+      <!-- Start Settings Page -->
+      <div class="container main_settings">
+        <section class="Settings_Box">
+          <div class="header">
+            <img
+              src="Image/2.Dashboard/Work Team/Profile img.png"
+              alt="User Profile Picture" />
+            <div>Hamza Y Alzoubi</div>
+            <i class="fa-solid fa-x"></i>
+          </div>
+          <div class="main-content">
+            <div class="Stsidebar">
+              <ul>
+                <li><a href="#General_component" class="tab-link">General</a></li>
+                <li><a href="#EditProfile_component" class="tab-link">Edit Profile</a></li>
+                <li><a href="#">Password</a></li>
+                <li><a href="#">Social Profiles</a></li>
+                <li><a href="#">Company</a></li>
+                <li><a href="#">Payouts</a></li>
+                <li><a href="#">Email Notifications</a></li>
+                <li><a href="#">Billing</a></li>
+                <li><a href="#">Sessions</a></li>
+                <li><a href="#">Applications</a></li>
+                <li><a href="#">Data Export</a></li>
+              </ul>
+              <span class="delete">Delete Account</span>
+            </div>
+            <div class="content">
+              <!-- General Component -->
+              <div class="General_component" id="General_component">
+                <h1>General</h1>
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" value="Hamza Y Alzoubi" />
                 </div>
-                <!-- End Work Team  -->
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" value="hamzaalzoubi94@gmail.com" />
+                </div>
+                <div class="form-group">
+                  <label>Disable ads <span class="pro-badge">PRO</span></label>
+                  <span class="hint">With a Pro account you can disable ads across the site.</span>
+                </div>
+                <div class="buttons">
+                  <button>Save Changes</button>
+                </div>
+              </div>
+              <!-- End -->
+              
+              <!-- Edit Profile Component -->
+              <div class="EditProfile_component" id="EditProfile_component">
+                <div class="profile-image">
+                  <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="User Image">
+                  <div>
+                    <!-- <label for="profile-upload">Upload a different photo.</label> -->
+                    <input type="file" id="profile-upload" accept="image/*">
+                  </div>
+                </div>
+            
+                <h2>Personal Info</h2>
+            
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" value="Hamza Y Alzoubi">
+                </div>
+            
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" value="Hamzaalzoubi94@gmail.com">
+                </div>
+            
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" id="password" value="********">
+                </div>
+            
+                <div class="form-group">
+                  <label for="confirm-password">Confirm password:</label>
+                  <input type="password" id="confirm-password" value="********">
+                </div>
+            
+                <div class="buttons">
+                  <button>Save Changes</button>
+                  <button>Cancel</button>
+                </div>
+              </div>
             </div>
         </section>
-        <!-- End Dashboard-->
-
-        <!-- Start Settings Page -->
-         <div class="container main_settings">
-             <section class="Settings_Box">
-                 <div class="header">
-                     <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="User Profile Picture">
-                     <div>Hamza Y Alzoubi</div> 
-                     <i class="fa-solid fa-x"></i>
-                 </div>
-                 <div class="main-content">
-                     <div class="Stsidebar">
-                         <ul>
-                             <li><a href="#">General</a></li>
-                             <li><a href="#">Edit Profile</a></li>
-                             <li><a href="#">Password</a></li>
-                             <li><a href="#">Social Profiles</a></li>
-                             <li><a href="#">Company</a></li>
-                             <li><a href="#">Payouts</a></li>
-                             <li><a href="#">Email Notifications</a></li>
-                             <li><a href="#">Billing</a></li>
-                             <li><a href="#">Sessions</a></li>
-                             <li><a href="#">Applications</a></li>
-                             <li><a href="#">Data Export</a></li>
-                         </ul>
-                         <span class="delete">Delete Account</span>
-                     </div>
-                     <div class="content">
-                         <h1>General</h1>
-                         <div class="form-group">
-                             <label for="username">Username</label>
-                             <input type="text" id="username" value="Hamza Y Alzoubi">
-                         </div>
-                         <div class="form-group">
-                             <label for="email">Email</label>
-                             <input type="email" id="email" value="hamzaalzoubi94@gmail.com">
-                         </div>
-                         <div class="form-group">
-                             <label>Disable ads <span class="pro-badge">PRO</span></label>
-                             <span class="hint">With a Pro account you can disable ads across the site.</span>
-                         </div>
-                         <div class="buttons">
-                             <button>Save Changes</button>
-                         </div>
-                     </div>
-                 </div>
-             </section>
-         </div>
-        <!-- End Settings Page -->
+      </div>
+      <!-- End Settings Page -->
     </main>
+    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="JS/Dashboard.js"></script>
     <script src="JS/main.js"></script>
-    </body>
+  </body>
 </html>

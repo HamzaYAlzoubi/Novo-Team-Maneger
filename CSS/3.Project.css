@@ -6,7 +6,6 @@ body {
     justify-content: flex-end;
     margin-top: 130px;
 }
-
 .add_project{
     background: #000;
     color: #fff;
@@ -27,78 +26,74 @@ body {
     margin-top: 10px;
 }
 .containerr {
-width: 90%;
-margin: 20px auto;
-background-color: white;
-border-radius: 8px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-overflow: hidden;
-
+    width: 90%;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    
 }
 .headerr {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 20px;
-border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
 }
 .headerr h1 {
-font-size: 18px;
-margin: 0;
-font-weight: normal;
+    font-size: 18px;
+    margin: 0;
+    font-weight: normal;
 }
 .headerr .counter {
-background-color: #eaf5ff;
-color: #000;
-padding: 5px 10px;
-border-radius: 20px;
-font-size: 14px;
-font-weight: bold;
+    background-color: #eaf5ff;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
 }
-
 .filters {
-display: flex;
-gap: 10px;
+    display: flex;
+    gap: 10px;
 }
-
 .filters input, .filters select {
-padding: 8px;
-border: 1px solid #ccc;
-border-radius: 4px;
-font-size: 14px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
 }
-
 table {
-width: 100%;
-border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
-
 thead {
-background-color: #f8f9fa;
-text-align: left;
+    background-color: #f8f9fa;
+    text-align: left;
 }
-
+table .project{
+    background-color: #f8f9fa;
+    text-align: left;
+    cursor: pointer;
+}
 thead th {
 padding: 12px;
 font-size: 14px;
 color: #6c757d;
 border-bottom: 1px solid #dee2e6;
 }
-
 tbody tr {
 border-bottom: 1px solid #dee2e6;
 }
-
 tbody tr:nth-child(even) {
 background-color: #f9f9f9;
 }
-
 tbody td {
 padding: 12px;
 font-size: 14px;
 color: #212529;
 }
-
 .status {
 display: inline-block;
 padding: 5px 10px;
@@ -106,23 +101,30 @@ font-size: 12px;
 border-radius: 20px;
 font-weight: bold;
 }
-
 .status.active {
 background-color: #e8f5e9;
 color: #4caf50;
 }
-
 .status.on-hold {
-background-color: #fff3cd;
-color: #856404;
+background-color: #ffffa2;
+color:#b08504;
 }
-
+.status.Delete {
+background-color: #ff9595;
+color:#980000c1;
+}
+th button,
+td button{
+    background-color: transparent;
+    border: solid 1px;
+    padding: 5px;
+    cursor: pointer;
+}
 .progress {
 display: flex;
 align-items: center;
 gap: 5px;
 }
-
 .progress-bar {
 width: 60px;
 height: 8px;
@@ -162,10 +164,16 @@ color: white;
 
 .pagination a:hover {
 background-color: #e0e0e0;
+color: #000;
 }
 /* ---- */
-.main_project{
+.menu_project{
 transform: translateY(-10px);
+}
+ th img{
+    width: 30px;
+    border-radius: 50%;
+    margin-left: -15px;
 }
  td img{
     width: 30px;
@@ -179,4 +187,7 @@ tbody td .box_td_img img{
     width: 30px;
     border-radius: 50%;
     margin-left: -15px;
+}
+.min_project{
+    display:contents;
 }
