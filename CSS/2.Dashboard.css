@@ -424,3 +424,34 @@
     display: none;
     overflow: hidden;
 }
+/* timer */
+.new-timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timer-input {
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  outline: none;
+  text-align: right;
+  min-width: 80px;
+}
+
+.timer-btns button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 1px solid black;
+}
