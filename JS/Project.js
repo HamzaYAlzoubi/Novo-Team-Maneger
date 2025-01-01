@@ -7,9 +7,9 @@ firstProject.innerHTML= `            <thead class="project">
                 <th>1</th>
                 <th><i class="fa-solid fa-angle-right"></i><span contenteditable="true"> المشروع الاول</span></th>
                 <th>
-                    <img src="/Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                    <img src="/Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                    <img src="/Image/2.Dashboard/Work Team/Omar.jpg" alt="">
+                    <img src="Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
+                    <img src="Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
+                    <img src="Image/2.Dashboard/Work Team/Omar.jpg" alt="">
                     <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
                 </th>
                 <th><span class="status on-hold">قيد العمل</span></th>
