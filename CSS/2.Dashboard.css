@@ -193,6 +193,117 @@
 .timer-container .fa-plus:hover {
   border: solid 2px black;
 }
+
+#madd {
+  width: 240px;
+  height: 270px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  display: none;
+}
+
+#madd div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+#madd label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+#madd input[type="number"],
+#madd select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin: auto;
+}
+#madd select{
+  width: 100px !important;
+}
+#madd [type="submit"],
+#madd button {
+  padding: 8px 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+#madd_btns{
+display: flex;
+background-color: #666;
+position: relative;
+height: 0px;
+top: -5px;
+}
+
+#madd [type="submit"] {
+  position: absolute;
+  background-color:black;
+  color: white;
+  width: 80px;
+}
+
+#madd button {
+  align-self: flex-end;
+  background-color:black;
+  color: white;
+  width: 80px;
+}
+#madd [type="submit"]:hover {
+  background-color: #fff;
+  color: #000;
+  border: solid 1px;
+}
+
+#madd button:hover {
+  background-color: #fff;
+  border: solid 1px;
+  color: #000;
+}
+.done_box{
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  color: green;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  display: none;
+}
+.done_box button{
+  width: 100px;
+  font-size: 22px;
+  background-color: #fff;
+  border: solid 1px;
+  padding: 3px;
+  border-radius: 5px;
+}
+.done_box button:hover{
+  background-color: #000;
+  color: #fff;
+  border: solid -1px #fff;
+}
+
 /* Mobail */
 @media (max-width: 767px) {
   .timer-container {
@@ -328,135 +439,3 @@
   background-color: #f4f4f4;
 }
 /* End Team*/
-.EditProfile_component {
-    width: 400px; /* Adjust width as needed */
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.profile-image {
-    display: flex;
-    text-align: center;
-    margin-bottom: 20px;
-}
-.profile-image > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.profile-image img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.profile-image label {
-    display: block;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="password"],
-.form-group select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
-
-.buttons {
-    text-align: right;
-}
-
-.buttons button {
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.buttons button:hover {
-    background-color: #45a049;
-}
-
-.buttons button:last-child {
-    background-color: #ccc;
-    color: #333;
-}
-
-/* Alert Styling */
-
-.alert {
-    background-color: #e6f0ff;
-    border: 1px solid #bce0fd;
-    border-radius: 4px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.close-icon {
-    float: right;
-    margin-right: -8px;
-    margin-top: -8px;
-    font-size: 20px;
-    color: #007bff;
-    cursor: pointer;
-}
-.content > div {
-    display: none;
-    overflow: hidden;
-}
-#suggestion-box {
-    width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#suggestion-input {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    resize: vertical;
-}
-
-#submit-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-#success-message {
-    display: none; /* Initially hidden */
-    background-color: #dff0d8;
-    border: 1px solid #d6e9c6;
-    border-radius: 3px;
-    padding: 15px;
-    margin-top: 20px;
-}

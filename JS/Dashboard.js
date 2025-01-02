@@ -138,11 +138,54 @@ rotate_right.onclick = function () {
   }
   setTime(minutes, seconds);
 };
-
 let { minutes, seconds } = getTime();
 updateTimerDisplay(minutes || 0, seconds || 0);
 });
 
+let add_btn = document.querySelector(".fa-plus")
+let madd = document.querySelector("#madd");
+let madd_cancel = document.querySelector("#madd button");
+
+let done_box = document.querySelector(".done_box");
+let done_box_btn = document.querySelector(".done_box button");
+
+add_btn.onclick = function() {
+    if (madd.style.display === "none") {
+        madd.style.display = "flex";
+    }else{
+        madd.style.display = "flex";
+    }
+}
+madd_cancel.onclick = function () {
+    madd.style.display = "none";
+}
+
+// للاضافة يدوي
+document.getElementById("submitBtn").addEventListener("click", function () {
+    const hours = document.getElementById("hoursInput").value;
+    const minutes = document.getElementById("minutesInput").value;
+    const project = document.getElementById("projects").value;
+    
+    // إرسال البيانات إلى الخادم (مثال)
+    console.log("Hours:", hours);
+    console.log("Minutes:", minutes);
+    console.log("Project:", project);
+    
+    done_box.style.display = "flex";
+    
+  });
+  
+  document.getElementById("cancelBtn").addEventListener("click", function () {
+    document.getElementById("hoursInput").value = "";
+    document.getElementById("minutesInput").value = "";
+    document.getElementById("projects").selectedIndex = 0;
+  });
+  
+  done_box_btn.onclick = function () {
+    done_box.style.display = "none";
+    madd.style.display = "none";
+  }
+  
 /* End Timer*/
 
 /* Start Task Box*/
@@ -254,127 +297,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* End Task Box*/
-document.addEventListener('DOMContentLoaded', function () {
-    const profileImageInput = document.getElementById('profile-upload');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const confirmPasswordInput = document.getElementById('confirm-password');
-    const saveButton = document.querySelector('.buttons button:first-child');
-    const cancelButton = document.querySelector('.buttons button:last-child');
-
-    // Handle image upload
-    profileImageInput.addEventListener('change', function (e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function () {
-                const imageElement = document.querySelector('.profile-image img');
-                imageElement.src = reader.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    // Validate form on save
-    saveButton.addEventListener('click', function () {
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
-        const confirmPassword = confirmPasswordInput.value.trim();
-
-        // Simple validation
-        if (name === '') {
-            alert('Please enter your name.');
-            return;
-        }
-
-        if (email === '' || !validateEmail(email)) {
-            alert('Please enter a valid email.');
-            return;
-        }
-
-        if (password !== confirmPassword) {
-            alert('Passwords do not match.');
-            return;
-        }
-
-        if (password.length < 6) {
-            alert('Password should be at least 6 characters.');
-            return;
-        }
-
-        // If everything is valid, you can handle form submission
-        // For now, just log the changes
-        console.log('Profile updated with:', { name, email, password });
-        alert('Changes saved successfully!');
-    });
-
-    // Cancel button (reset form)
-    cancelButton.addEventListener('click', function () {
-        // Reset form fields to initial values
-        nameInput.value = 'Hamza';
-        emailInput.value = 'janesemail@gmail.com';
-        passwordInput.value = '********';
-        confirmPasswordInput.value = '********';
-    });
-
-    // Helper function for email validation
-    function validateEmail(email) {
-        const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        return re.test(email);
-    }
-});
-//
-//
-//
-//
-document.addEventListener('DOMContentLoaded', function () {
-    const tabs = document.querySelectorAll('.tab-link');
-    const contentSections = document.querySelectorAll('.content > div');
-    
-    tabs.forEach(tab => {
-      tab.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        // Hide all content sections
-        contentSections.forEach(section => {
-          section.style.display = 'none';
-        });
-
-        // Show the corresponding content section
-        const targetId = this.getAttribute('href').substring(1); // Remove the '#' symbol
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.style.display = 'block';
-        }
-      });
-    });
-
-
-    
-    // Optionally, show the first section by default when the page loads
-    if (contentSections.length > 0) {
-      contentSections[0].style.display = 'block';
-    }
-  });
-  const submitButton = document.getElementById('submit-button');
-const suggestionInput = document.getElementById('suggestion-input');
-const successMessage = document.getElementById('success-message');
-
-submitButton.addEventListener('click', () => {
-    const suggestion = suggestionInput.value;
-
-    if (suggestion.trim() === '') {
-        alert('Please enter a suggestion.');
-        return;
-    }
-
-    // Here, you would typically send the suggestion to a server-side script 
-    // using AJAX (e.g., with fetch or XMLHttpRequest)
-
-    // For this example, we'll just simulate sending the suggestion 
-    // by displaying a success message
-    successMessage.style.display = 'block'; 
-    suggestionInput.value = ''; // Clear the input field
-});

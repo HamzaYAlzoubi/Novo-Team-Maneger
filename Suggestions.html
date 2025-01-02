@@ -15,135 +15,73 @@
         <link rel="Icon" href="Image/1.Header/Novo Logo Icon page.png">
         <!-- CSS files -->
         <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/Suggestions.css">
         <title>Novo Team Manager | Suggestions</title>
     </head>
     <body>
         <!-- Start Header-->
-        <header id="header">
-            <i class="fa-solid fa-bars flex-center"></i>
-            <div class="container">
-                <a href="#"><img id="Logo" src="Image/1.Header/Novo Logo.png" alt=""></a>
-                <div></div>
-                <i class="fa-regular fa-bell fa-lg notification">
-                    <div class="notification_box">
-                        <span>التنبيهات</span>
-                        <label>
-                            <input class="toggle-checkbox" type="checkbox">
-                            <div  class="toggle-switch"></div>
-                        </label>
-                    </div>
-                </i>
-                <img class="Profile_img" src="Image/2.Dashboard/Work Team/Profile img.png">
-                <div class="img_setting">
-                    <img class="Profile_img" src="Image/2.Dashboard/Work Team/Profile img.png">
-                    <div class="profile_name">حمزة بن يحيى الزعبي</div>
-                    <div class="Settings_btn">ﺇعدادات</div>
-                    <div class="project_management">ﺇدارة المشاريع</div>
-                    <div class="task_management">ﺇدارة المهام</div>
-                    <hr>
-                    <a class="Logout" href="index.html">تسجيل الخروج</a>
-                </div>
-            </div>
-        </header>
+        <header id="header"></header>
         <!-- Start Header-->
-    <main>
-            <!-- Start Sidebar -->
-            <nav class="sidebar">
-                <div class="logo">
-                    <img src="Image/1.Header/Novo Logo Icon page.png" alt="">
-                  <span class="logo-icon">Novo</span>
-                </div>
-                <ul class="menu">
-                  <li class="menu-item Dashboard_page">
-                    <i class="fa-solid fa-gauge icon"></i>
-                    <span>لوحة التحكم</span>
-                  </li>
-                  <li class="menu-item  Projects_page">
-                    <i class="fa-solid fa-folder-open icon"></i><span>ﺇدارة المشاريع</span>
-                    <span class="badge">3/5</span>
-                  </li>
-                  <li class="menu-item Tasks_Page">
-                    <i class="fa-solid fa-list-check icon"></i>
-                    <span>ﺇدارة المهام</span>
-                  </li>
-                  <li class="menu-item Repoets_page">
-                    <i class="fa-solid fa-file-lines icon"></i>
-                    <span>التقارير</span>
-                    <span class="new-badge">New</span>
-                  </li>
-                  <li class="menu-item Messages_page">
-                    <i class="fa-solid fa-envelope icon"></i>
-                    <span>رسائل التواصل</span>
-                  </li>
-                  <hr>
-                  <li class="menu-item DownSB icon Suggestions_page active">
-                    <i class="fa-solid fa-toolbox icon"></i><span>صندوق الاقتراحات</span>
-                    <span class="badge">164</span>
-                  </li>
-                  <li class="menu-item DownSB SBsettings icon">
-                    <i class="fa-solid fa-gear icon"></i>
-                    <span>ﺇعدادات</span>
-                  </li>
-                </ul>
-            </nav>
-             <!-- End Sidebar -->
-            <!-- Start Settings Page -->
-         <div class="container main_settings">
-             <section class="Settings_Box">
-                 <div class="header">
-                     <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="User Profile Picture">
-                     <div>Hamza Y Alzoubi</div> 
-                     <i class="fa-solid fa-x"></i>
-                 </div>
-                 <div class="main-content">
-                     <div class="Stsidebar">
-                         <ul>
-                             <li><a href="#">General</a></li>
-                             <li><a href="#">Edit Profile</a></li>
-                             <li><a href="#">Password</a></li>
-                             <li><a href="#">Social Profiles</a></li>
-                             <li><a href="#">Company</a></li>
-                             <li><a href="#">Payouts</a></li>
-                             <li><a href="#">Email Notifications</a></li>
-                             <li><a href="#">Billing</a></li>
-                             <li><a href="#">Sessions</a></li>
-                             <li><a href="#">Applications</a></li>
-                             <li><a href="#">Data Export</a></li>
-                         </ul>
-                         <span class="delete">Delete Account</span>
-                     </div>
-                     <div class="content">
-                         <h1>General</h1>
-                         <div class="form-group">
-                             <label for="username">Username</label>
-                             <input type="text" id="username" value="Hamza Y Alzoubi">
-                         </div>
-                         <div class="form-group">
-                             <label for="email">Email</label>
-                             <input type="email" id="email" value="hamzaalzoubi94@gmail.com">
-                         </div>
-                         <div class="form-group">
-                             <label>Disable ads <span class="pro-badge">PRO</span></label>
-                             <span class="hint">With a Pro account you can disable ads across the site.</span>
-                         </div>
-                         <div class="buttons">
-                             <button>Save Changes</button>
-                         </div>
-                     </div>
-                 </div>
-             </section>
-         </div>
-         <div id="suggestion-box">
-            <h2>Submit Your Suggestions</h2>
-            <textarea id="suggestion-input" placeholder="Enter your suggestion here..."></textarea>
-            <button id="submit-button">Submit</button>
-        </div>
-    
-        <div id="success-message" style="display: none;">
-            <h3>Suggestion Submitted!</h3>
-            <p>Thank you for your feedback!</p>
-        </div>
+
+        <!-- Start Settings Page -->
+        <div class="container_Setting"></div>
         <!-- End Settings Page -->
+
+        <!-- Start Sidebar -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="Image/1.Header/Novo Logo Icon page.png" alt="">
+              <span class="logo-icon">Novo</span>
+            </div>
+            <ul class="menu">
+              <li class="menu-item Dashboard_page">
+                <i class="fa-solid fa-gauge icon"></i>
+                <span>لوحة التحكم</span>
+              </li>
+              <li class="menu-item  Projects_page">
+                <i class="fa-solid fa-folder-open icon"></i><span>ﺇدارة المشاريع</span>
+                <span class="badge">3/5</span>
+              </li>
+              <li class="menu-item Tasks_Page">
+                <i class="fa-solid fa-list-check icon"></i>
+                <span>ﺇدارة المهام</span>
+              </li>
+              <li class="menu-item Repoets_page">
+                <i class="fa-solid fa-file-lines icon"></i>
+                <span>التقارير</span>
+                <span class="new-badge">New</span>
+              </li>
+              <li class="menu-item Messages_page">
+                <i class="fa-solid fa-envelope icon"></i>
+                <span>رسائل التواصل</span>
+              </li>
+              <hr>
+              <li class="menu-item DownSB icon Suggestions_page active">
+                <i class="fa-solid fa-toolbox icon"></i><span>صندوق الاقتراحات</span>
+                <span class="badge">164</span>
+              </li>
+              <li class="menu-item DownSB SBsettings icon">
+                <i class="fa-solid fa-gear icon"></i>
+                <span>ﺇعدادات</span>
+              </li>
+            </ul>
+        </nav>
+        <!-- End Sidebar -->
+
+
+        <!-- Start Page -->
+        <div class="container_Page">
+          <div class="container-text-area">
+              <h2><label for="text-area">صندوق الأقتراحات</label></h2>
+              <textarea dir="auto" id="text-area" class="text-area" rows="5" placeholder="Write your notes here..."></textarea>
+              <button id="btn-save" class="btn-text-area">Save Changes</button>
+              <p id="msg-saved" class="msg-text-area">Changes saved successfully!</p>
+          </div>
+        </div>
+        <!-- End Page -->
+
+
       <script src="JS/main.js"></script>
+      <script src="JS/Suggesiton.js"></script>
     </body>
 </html>
