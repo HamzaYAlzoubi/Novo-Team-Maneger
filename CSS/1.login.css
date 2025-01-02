@@ -237,3 +237,12 @@ header .container .Login:hover{
 	transform: scale(1.5);	
 }
 /* End Login Page */
+
+/* Start Clerk login page */
+#app {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+/* End Clerk login page */

@@ -1,3 +1,5 @@
+import "./login.js"
+
 /* Start Hedaer */
 let header = document.querySelector("#header");
 header.innerHTML = `    <!-- Start Header-->
@@ -17,9 +19,7 @@ header.innerHTML = `    <!-- Start Header-->
             </label>
           </div>
         </i>
-        <img
-          class="Profile_img"
-          src="Image/2.Dashboard/Work Team/Profile img.png" />
+        <div id="user-button"></div>
         <div class="img_setting">
           <img
             class="Profile_img"
