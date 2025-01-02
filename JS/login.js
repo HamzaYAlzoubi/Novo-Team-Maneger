@@ -1,10 +1,11 @@
 import { Clerk } from '@clerk/clerk-js'
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
-const clerk = new Clerk(clerkPubKey)
+export const clerk = new Clerk(clerkPubKey)
 
-const loginPagePath = "/"
-const dashboardPagePath = "/Dashboard.html"
+export const loginPagePath = "/"
+export const dashboardPagePath = "/Dashboard.html"
+export const signUpPagePath = "/signup"
 
 export const login = async () => {
 	try {
@@ -21,7 +22,7 @@ export const login = async () => {
 				clerk.mountUserButton(userButtonDiv)
 			}
 		} else {
-			if (currentPath !== loginPagePath) {
+			if (currentPath !== loginPagePath && currentPath !== signUpPagePath) {
 				window.location.href = loginPagePath
 			}
 			else {
@@ -32,6 +33,7 @@ export const login = async () => {
 				clerk.mountSignIn(signInDiv, {
           afterSignInUrl: dashboardPagePath,
           afterSignUpUrl: dashboardPagePath,
+					signUpUrl: signUpPagePath
         })
 			}
 		}
