@@ -1,0 +1,57 @@
+.container_Page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.container-text-area {
+    background-color: white;
+    margin-top: 120px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 750px;
+    text-align: center;
+}
+
+label[for="text-area"] {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.text-area {
+    width: 100%;
+    height: 300px;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 1.5px;
+}
+
+.btn-text-area {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.btn-text-area:hover {
+    background-color: #fff;
+    color: #000;
+    border: solid 1px;
+}
+
+.msg-text-area {
+    color: green;
+    margin-top: 15px;
+    display: none;
+    font-weight: bold;
+}

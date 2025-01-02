@@ -138,11 +138,54 @@ rotate_right.onclick = function () {
   }
   setTime(minutes, seconds);
 };
-
 let { minutes, seconds } = getTime();
 updateTimerDisplay(minutes || 0, seconds || 0);
 });
 
+let add_btn = document.querySelector(".fa-plus")
+let madd = document.querySelector("#madd");
+let madd_cancel = document.querySelector("#madd button");
+
+let done_box = document.querySelector(".done_box");
+let done_box_btn = document.querySelector(".done_box button");
+
+add_btn.onclick = function() {
+    if (madd.style.display === "none") {
+        madd.style.display = "flex";
+    }else{
+        madd.style.display = "flex";
+    }
+}
+madd_cancel.onclick = function () {
+    madd.style.display = "none";
+}
+
+// للاضافة يدوي
+document.getElementById("submitBtn").addEventListener("click", function () {
+    const hours = document.getElementById("hoursInput").value;
+    const minutes = document.getElementById("minutesInput").value;
+    const project = document.getElementById("projects").value;
+    
+    // إرسال البيانات إلى الخادم (مثال)
+    console.log("Hours:", hours);
+    console.log("Minutes:", minutes);
+    console.log("Project:", project);
+    
+    done_box.style.display = "flex";
+    
+  });
+  
+  document.getElementById("cancelBtn").addEventListener("click", function () {
+    document.getElementById("hoursInput").value = "";
+    document.getElementById("minutesInput").value = "";
+    document.getElementById("projects").selectedIndex = 0;
+  });
+  
+  done_box_btn.onclick = function () {
+    done_box.style.display = "none";
+    madd.style.display = "none";
+  }
+  
 /* End Timer*/
 
 /* Start Task Box*/
