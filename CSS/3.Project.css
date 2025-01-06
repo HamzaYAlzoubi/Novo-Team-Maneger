@@ -1,0 +1,207 @@
+.container_page{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+}
+.Add_Project{
+    align-self: flex-end;
+    padding: 15px;
+    border-radius: 40px;
+    background-color: black;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.Add_Project:hover{
+    background-color: #fff;
+    color: #000;
+}
+.container_Project_all{
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #a6a6a6;
+    border-radius: 10px;
+}
+.headerr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+}
+.headerr .filters{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.headerr .filters select,
+.headerr .filters input{
+    margin-left: 15px;
+    padding: 5px;
+}
+.headerr h1{
+    font-size: 20px;
+    margin-left: 10px;
+}
+.container_Project_all .project_Data{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(41, 41, 41);
+    color: #ffffff;
+    padding: 12px;
+    font-size: 16px;
+}
+.container_Project_all .Active_Status span{
+    background-color: #4caf50;
+    color: #fff;
+    width: 60px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+.container_Project_all .Hold_Status span{
+    background-color: #f2eb6c;
+    color: #baa00e;
+    width: 60px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    font-size: 13px
+}
+.container_Project_all .Done_Status span{
+    background-color: #4caf50;
+    color: #fff;
+    width: 60px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+.project .min_project_Data{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ffffff !important;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: solid 1px #ccc;
+    width: calc(100% + 2px);
+    margin-left: -1px;
+    display: none;
+}
+.container_Project_all .project_Data div,
+.project .min_project_Data div{
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.container_Project_all .project .big_Project,
+.container_Project_all .project .min_project{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #f2f2f2;
+    padding: 12px;
+    font-size: 16px;
+    position: relative;
+    cursor: pointer;
+}
+.container_Project_all .project .min_project{
+    background-color: #fff;
+    cursor:auto;
+    display: none;
+}
+.container_Project_all .project .big_Project .fa-caret-right,
+.container_Project_all .project .big_Project .fa-caret-down{
+position: absolute;
+left: 30px;
+top: 20px;
+}
+.container_Project_all .project .big_Project .fa-caret-down{
+display: none;
+}
+.container_Project_all .project .big_Project div,
+.container_Project_all .project .min_project div{
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container_Project_all .project .big_Project img,
+.container_Project_all .project .min_project img{
+    width: 35px;
+    border-radius: 50%;
+    margin-left: -15px;
+    border: solid 2px #fff;
+}
+.container_Project_all .project .customer_name{
+    display: flex;
+    flex-direction: column;
+}
+.add_min{
+    background-color: #000;
+    color: #fff;
+    border: none;
+    width: 80px;
+    height: 35px;
+    padding: 1px;
+}
+.add_min:hover{
+    padding: 5px;
+    background-color: #fff;
+    color: #000;
+    border: solid 1px;
+}
+
+.progress-ring {
+    position: relative;
+    width: 20px !important;
+    height: 20px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #4caf50 calc(var(--percentage) * 1%), 
+      #e0e0e0 0
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .progress-ring::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+  }
+.progress-ringg {
+    position: relative;
+    width: 20px !important;
+    height: 20px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #4caf50 calc(var(--percentage) * 1%), 
+      #e0e0e0 0
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .progress-ringg::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffff;
+    border-radius: 50%;
+  }
+
+.snpah {
+    margin-left: 5px;
+}
