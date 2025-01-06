@@ -90,7 +90,6 @@
     border: solid 1px #ccc;
     width: calc(100% + 2px);
     margin-left: -1px;
-    display: none;
 }
 .container_Project_all .project_Data div,
 .project .min_project_Data div{
@@ -113,16 +112,15 @@
 .container_Project_all .project .min_project{
     background-color: #fff;
     cursor:auto;
-    display: none;
 }
 .container_Project_all .project .big_Project .fa-caret-right,
 .container_Project_all .project .big_Project .fa-caret-down{
-position: absolute;
-left: 30px;
-top: 20px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
 }
-.container_Project_all .project .big_Project .fa-caret-down{
-display: none;
+.container_Project_all .project .big_Project .fa-caret-right{
+    display: none;
 }
 .container_Project_all .project .big_Project div,
 .container_Project_all .project .min_project div{
