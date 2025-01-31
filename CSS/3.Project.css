@@ -15,6 +15,65 @@
     background-color: #fff;
     color: #000;
 }
+
+.project_form {
+    width: 90%; /* لجعل الشكل أكثر استجابة */
+    max-width: 600px; /* أقصى عرض للحفاظ على التصميم */
+    background-color: #ffffff;
+    border-radius: 12px; /* زوايا مدورة */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* ظل ناعم */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عمودياً */
+    gap: 1.5rem; /* مسافة بين العناصر */
+    transition: all 0.3s ease; /* تأثيرات ناعمة */
+}
+
+.project_form input {
+    width: 100%; /* استخدام العرض الكامل */
+    height: 40px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.project_form input:focus {
+    outline: none;
+    border-color: #4caf50; /* لون التركيز الأخضر */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1); /* ظل خفيف عند التركيز */
+}
+
+.form_Assigned_name {
+    display: flex;
+    gap: 1rem; /* مسافة بين الصور */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.form_Assigned_name img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-left: -13px;
+}
+
+.form_Assigned_name img:hover {
+    transform: translateY(-4px); /* تأثير رفع الصورة عند hover */
+}
+
+
 .container_Project_all{
     width: 100%;
     background-color: #fff;
