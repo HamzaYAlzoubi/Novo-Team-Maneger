@@ -17,24 +17,37 @@
 }
 
 .project_form {
-    width: 90%; /* لجعل الشكل أكثر استجابة */
-    max-width: 600px; /* أقصى عرض للحفاظ على التصميم */
+    width: 90%;
+    max-width: 600px; 
     background-color: #ffffff;
-    border-radius: 12px; /* زوايا مدورة */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* ظل ناعم */
+    border-radius: 12px; 
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2rem;
     display: flex;
-    flex-direction: column; /* ترتيب العناصر عمودياً */
-    gap: 1.5rem; /* مسافة بين العناصر */
-    transition: all 0.3s ease; /* تأثيرات ناعمة */
+    flex-direction: column; 
+    gap: 1.5rem; 
+    transition: all 0.3s ease; 
+    position:fixed;
+}
+.X {
+    transform: translate(-10px , 8px);
+    cursor: pointer;
+}
+.X:hover {
+    color: red;
+}
+.project_form .X {
+    align-self: flex-end;
+    font-size: 20px;
+    transform: translateY(10px);
 }
 
 .project_form input {
-    width: 100%; /* استخدام العرض الكامل */
+    width: 100%;
     height: 40px;
     padding: 0.5rem 1rem;
     border: 1px solid #e0e0e0;
@@ -46,13 +59,13 @@
 
 .project_form input:focus {
     outline: none;
-    border-color: #4caf50; /* لون التركيز الأخضر */
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1); /* ظل خفيف عند التركيز */
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
 
 .form_Assigned_name {
     display: flex;
-    gap: 1rem; /* مسافة بين الصور */
+    gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
     margin: 1rem 0;

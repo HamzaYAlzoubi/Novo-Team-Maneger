@@ -1,3 +1,5 @@
+import { getProjects, insertProject } from "./db.js";
+
 let Add_Project = document.querySelector(".Add_Project");
 let container_Project_all = document.querySelector(".container_Project_all")
 let counterClassBig = 1;
@@ -7,39 +9,64 @@ let counter_min = 1;
 let add_minCounter = 1;
 
 
+addEventListener("DOMContentLoaded", async () => { // fetches all projects once the dom loads
+    // Loading time is bad but the problem seems to the site it self not the projects because they load immedatily
+    // after eachother but the DOM takes time to be loaded. Further investigation is needed...
+    try {
+        const projects = await getProjects()
 
-Add_Project.onclick = function () { // اضافة مشروع كبير
+        projects.forEach(project => {
+            const newProject = createProject(project.title, project.customer_name, project.date_due, project.profit)
+            container_Project_all.appendChild(newProject.dev)
+        })
+    } catch (error) {
+        alert(error)
+    }
+})
+
+
+Add_Project.onclick = async function () { // اضافة مشروع كبير
     
     let form = document.createElement("form");
     form.className = "project_form";
+
+    // ضفت رز للاغلاق
+    let X = document.createElement("i");
+    X.classList.add("fa-solid");
+    X.classList.add("fa-x");
+    X.classList.add("X");
+    
+
     let form_Project_name = document.createElement("input");
     form_Project_name.className = "form_Project_name";
-    form_Project_name.setAttribute("type" , "text");
-    form_Project_name.setAttribute("placeholder" , "Project name");
-    
+    form_Project_name.setAttribute("type", "text");
+    form_Project_name.setAttribute("placeholder", "Project name");
+
     let form_Customer_name = document.createElement("input");
     form_Customer_name.className = "form_Customer_name";
-    form_Customer_name.setAttribute("type" , "text");
-    form_Customer_name.setAttribute("placeholder" , "Customer name");
-    
-    
+    form_Customer_name.setAttribute("type", "text");
+    form_Customer_name.setAttribute("placeholder", "Customer name");
+
+
     let form_Assigned_name = document.createElement("div");
     form_Assigned_name.className = "form_Assigned_name";
-    
+
     // حبذا هون يا عمر لو تعمل لوب على كل صور الموظفين بقاعدة البيانات
+
+    // هتأخذ وقت، لو هتكلموا على نفس قاعدة البيانات ممكن أعملها، لو هتبدلوا بعدين ما ليها داعي حاليا
     for (let i = 0; i < 4; i++) {
         let container = document.createElement("label");
         let Team_input = document.createElement("input");
-        Team_input.setAttribute("type" , "radio");
-        Team_input.setAttribute("name" , "teamMember");
+        Team_input.setAttribute("type", "radio");
+        Team_input.setAttribute("name", "teamMember");
         Team_input.style.display = "none"; // إخفاء الـ input
-        
+
         let Team_img = document.createElement("img");
-        Team_img.setAttribute("src" , "Image/2.Dashboard/Work Team/Profile img.png");
+        Team_img.setAttribute("src", "Image/2.Dashboard/Work Team/Profile img.png");
         Team_img.style.cursor = "pointer";
         Team_img.style.border = "2px solid transparent";
-        
-        
+
+
         Team_img.addEventListener('click', () => {
             Team_input.checked = true;
             document.querySelectorAll('.form_Assigned_name img').forEach(img => {
@@ -47,134 +74,258 @@ Add_Project.onclick = function () { // اضافة مشروع كبير
             });
             Team_img.style.border = "2px solid #4CAF50";
         });
-        
+
         container.appendChild(Team_input);
         container.appendChild(Team_img);
-        form_Assigned_name.appendChild(container);        
+        form_Assigned_name.appendChild(container);
     }
-    
+
     let form_Due_Date = document.createElement("input");
     form_Due_Date.className = "form_Due_Date";
-    form_Due_Date.setAttribute("type" , "date");
-    
-    
+    form_Due_Date.setAttribute("type", "date");
+
+
     let form_Net_Profit = document.createElement("input");
     form_Net_Profit.className = "form_Net_Profit";
-    form_Net_Profit.setAttribute("type" , "number");
-    form_Net_Profit.setAttribute("placeholder" , "Project Net Profit : 0.00$");
-    
-    
+    form_Net_Profit.setAttribute("type", "number");
+    form_Net_Profit.setAttribute("placeholder", "Project Net Profit : 0.00$");
+
+
     let form_submit = document.createElement("input");
     form_submit.className = "form_submit";
-    form_submit.setAttribute("type" , "submit");
-    
-    
+    form_submit.setAttribute("type", "submit");
+
+
+    form.appendChild(X)
     form.appendChild(form_Project_name)
     form.appendChild(form_Customer_name)
     form.appendChild(form_Assigned_name)
     form.appendChild(form_Due_Date)
     form.appendChild(form_Net_Profit)
     form.appendChild(form_submit)
-    
+
     document.body.appendChild(form);
 
 
-    form.onsubmit = function (e) {
+    form.onsubmit = async function (e) {
         e.preventDefault() // مهم جدا جدا جدا : اذا بدك الفورم يبعث يا عمر امسح هذا السطر انا حاطه مشان ما تحدث الصفحة
 
-        const new_project_id = counterClassBig++
-        const new_project = document.createElement("div")
-        new_project.id = `big_Project${new_project_id}`
-        new_project.className = "project";
-    
-        const projectData = document.createElement("div")
-        projectData.className = `big_Project big_Project${new_project_id}`
-        projectData.innerHTML = `
-            <i class="fa-solid fa-caret-right"></i>
-            <i class="fa-solid fa-caret-down"></i>
-            <div>${counter_big++}.</div>
-            <div class="customer_name">${form_Project_name.value}
-                <small>${form_Customer_name.value}</small>
-            </div>
-            <div>
-                <img src="Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
-                <img src="Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
-                <img src="Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-                <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
-            </div>
-            <div>
-                <div class="progress-ring" style="--percentage: 00;"></div>
-                <span class="snpah">%0</span>
-            </div>
-            <div class="Active_Status"><span>Active</span></div>
-            <div>0h 0m</div>
-            <div>${form_Due_Date.value}</div>
-            <div>${form_Net_Profit.value}$</div>
-        `
-        new_project.appendChild(projectData)
-    
-        const minProjectsContainer = document.createElement("div")
-        minProjectsContainer.className = "min-projects-container"
-        minProjectsContainer.innerHTML = `
-            <div class="min_project_Data">
-                <div>Num.</div>
-                <div>Section</div>
-                <div>Assigned to</div>
-                <div>% Complete	</div>
-                <div>Status</div>
-                <div>Hours</div>
-                <div>Due Date</div>
-                <div><button class="add_min add_min${add_minCounter++}">+ Add </button></div>
-            </div>
-            <div class="min-projects"></div>
-        `
-        new_project.appendChild(minProjectsContainer)
-    
-        projectData.addEventListener("click", () => showHideMinProjects(new_project_id))
-    
-        const add_min_button = new_project.querySelector(`.add_min`)
-        add_min_button.addEventListener("click", () => addMinProject(new_project_id))
-    
-        container_Project_all.appendChild(new_project)
-        form.remove();
-    }
-    
-    const showHideMinProjects = (projectId) => {
-        const project = document.querySelector(`#big_Project${projectId}`)
-        const rIcon = project.querySelector(".fa-caret-right")
-        const dIcon = project.querySelector(".fa-caret-down")
-        const minProjectsContainer = project.querySelector(`#big_Project${projectId} .min-projects-container`)
-        if (project.classList.contains("hidden")) {
-            minProjectsContainer.style.display = "block"
-            dIcon.style.display = "block"
-            rIcon.style.display = "none"
-        } else {
-            minProjectsContainer.style.display = "none"
-            dIcon.style.display = "none"
-            rIcon.style.display = "block"
+        // insearting into the db
+        try {
+            const new_project = createProject(form_Project_name.value,
+                form_Customer_name.value, form_Due_Date.value, form_Net_Profit.value)
+            await insertProject({
+                id: new_project.id,
+                title: form_Project_name.value,
+                customer_name: form_Customer_name.value,
+                date_due: form_Due_Date.value,
+                profit: form_Net_Profit.value
+            })
+
+            container_Project_all.appendChild(new_project.dev)
+
+            form.remove();
+        } catch (error) {
+            alert(error)
         }
-        project.classList.toggle("hidden")
     }
+
+}
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("X")) {
+        e.target.parentElement.remove();
+    }
+  });
+
+function createProject(title, customer, date, profit) {
+    // Main Project
+    const new_project_id = counterClassBig++
+    const new_project = document.createElement("div")
+    new_project.id = `big_Project${new_project_id}`
+    new_project.className = "project";
+
+    let X = document.createElement("i");
+    X.classList.add("fa-solid");
+    X.classList.add("fa-x");
+    X.classList.add("X");
+
+    const projectData = document.createElement("div")
+    projectData.className = `big_Project big_Project${new_project_id}`
+    projectData.innerHTML = `
+        <i class="fa-solid fa-caret-right"></i>
+        <i class="fa-solid fa-caret-down"></i>
+        <div>${counter_big++}.</div>
+        <div class="customer_name">${title}
+            <small>${customer}</small>
+        </div>
+        <div>
+            <img src="Image/2.Dashboard/Work Team/Mohamed S.jpg" alt="">
+            <img src="Image/2.Dashboard/Work Team/Amjad.jpg" alt="">
+            <img src="Image/2.Dashboard/Work Team/Omar.jpg" alt="">
+            <img src="Image/2.Dashboard/Work Team/Profile img.png" alt="">
+        </div>
+        <div>
+            <div class="progress-ring" style="--percentage: 00;"></div>
+            <span class="snpah">%0</span>
+        </div>
+        <div class="Active_Status"><span>Active</span></div>
+        <div>0h 0m</div>
+        <div>${date}</div>
+        <div>${profit}$</div>
+        <i class="fa-solid fa-x X"></i>
+    `
+    new_project.appendChild(projectData)
     
-    const addMinProject = (projectId) => {
-        const projectMinProjectContainer = document.querySelector(`#big_Project${projectId} .min-projects`)
-        const minProjectId = projectMinProjectContainer.children.length + 1
-        const minProject = document.createElement("div")
-        minProject.classList.add("min_project")
-        minProject.innerHTML = `
-            <div>${minProjectId}.</div>
-            <div class="customer_name">Settings Page</div>
-            <div>
-                <img src="Image/2.Dashboard/Work Team/Omar.jpg" alt="">
-            </div>
-            <div>
-                <div class="progress-ringg" style="--percentage: 10;"></div>
-                <span class="snpah">%10</span>
-            </div>                    <div class="Active_Status"><span>Active</span></div>
-            <div>2h 35m</div>
-            <div>1/1/2025</div>
-            <div>200$</div>
-        `
-        projectMinProjectContainer.appendChild(minProject)
+    // Sub Project
+    const minProjectsContainer = document.createElement("div")
+    minProjectsContainer.className = "min-projects-container"
+
+    minProjectsContainer.innerHTML = ` 
+                <div class="min_project_Data"> 
+                    <div>Num.</div>
+                    <div>Section</div>
+                    <div>Assigned to</div>
+                    <div>% Complete	</div>
+                    <div>Status</div>
+                    <div>Hours</div>
+                    <div>Due Date</div>
+                    <div><button class="add_min add_min${add_minCounter++}">+ Add </button></div>
+                </div>
+                <div class="min-projects"></div>
+            `
+    new_project.appendChild(minProjectsContainer)
+
+    projectData.addEventListener("click", () => showHideMinProjects(new_project_id))
+    //عمر: إذا بدك خلي الحالة الإفتراضية أنه يكون مخفي أحسن
+
+    //حمزة: اذا انت بتعرف تعملها اعملها
+
+    const add_min_button = new_project.querySelector(`.add_min`)
+    add_min_button.addEventListener("click", () => addMinProject(new_project_id))
+
+    return { id: new_project_id, dev: new_project }
+}
+
+
+const showHideMinProjects = (projectId) => {
+
+
+    const project = document.querySelector(`#big_Project${projectId}`)
+    const rIcon = project.querySelector(".fa-caret-right")
+    const dIcon = project.querySelector(".fa-caret-down")
+    const minProjectsContainer = project.querySelector(`#big_Project${projectId} .min-projects-container`)
+    if (project.classList.contains("hidden")) {
+        minProjectsContainer.style.display = "block"
+        dIcon.style.display = "block"
+        rIcon.style.display = "none"
+    } else {
+        minProjectsContainer.style.display = "none"
+        dIcon.style.display = "none"
+        rIcon.style.display = "block"
     }
+    project.classList.toggle("hidden")
+}
+
+const addMinProject = (projectId) => {
+    const projectMinProjectContainer = document.querySelector(`#big_Project${projectId} .min-projects`)
+    const minProjectId = projectMinProjectContainer.children.length + 1
+    const minProject = document.createElement("div")
+    minProject.classList.add("min_project");
+
+
+
+    let form = document.createElement("form");
+    form.className = "project_form";
+
+    let X = document.createElement("i");
+    X.classList.add("fa-solid");
+    X.classList.add("fa-x");
+    X.classList.add("X");
+    
+
+    let Section = document.createElement("input");
+    Section.className = "form_Project_name";
+    Section.setAttribute("type", "text");
+    Section.setAttribute("placeholder", "Section");
+
+    let form_Assigned_name = document.createElement("div");
+    form_Assigned_name.className = "form_Assigned_name";
+
+    // حبذا هون يا عمر لو تعمل لوب على كل صور الموظفين بقاعدة البيانات
+
+    // هتأخذ وقت، لو هتكلموا على نفس قاعدة البيانات ممكن أعملها، لو هتبدلوا بعدين ما ليها داعي حاليا
+    for (let i = 0; i < 4; i++) {
+        let container = document.createElement("label");
+        let Team_input = document.createElement("input");
+        Team_input.setAttribute("type", "radio");
+        Team_input.setAttribute("name", "teamMember");
+        Team_input.style.display = "none";
+
+        let Team_img = document.createElement("img");
+        Team_img.setAttribute("src", "Image/2.Dashboard/Work Team/Profile img.png");
+        Team_img.style.cursor = "pointer";
+        Team_img.style.border = "2px solid transparent";
+
+
+        Team_img.addEventListener('click', () => {
+            Team_input.checked = true;
+            document.querySelectorAll('.form_Assigned_name img').forEach(img => {
+                img.style.border = "2px solid transparent";
+            });
+            Team_img.style.border = "2px solid #4CAF50";
+        });
+
+        container.appendChild(Team_input);
+        container.appendChild(Team_img);
+        form_Assigned_name.appendChild(container);
+    }
+
+    let form_Due_Date = document.createElement("input");
+    form_Due_Date.className = "form_Due_Date";
+    form_Due_Date.setAttribute("type", "date");
+
+
+    let form_Net_Profit = document.createElement("input");
+    form_Net_Profit.className = "form_Net_Profit";
+    form_Net_Profit.setAttribute("type", "number");
+    form_Net_Profit.setAttribute("placeholder", "Project Net Profit : 0.00$");
+
+
+    let form_submit = document.createElement("input");
+    form_submit.className = "form_submit";
+    form_submit.setAttribute("type", "submit");
+
+
+    form.appendChild(X)
+    form.appendChild(Section)
+    form.appendChild(form_Assigned_name)
+    form.appendChild(form_Due_Date)
+    form.appendChild(form_Net_Profit)
+    form.appendChild(form_submit)
+
+    document.body.appendChild(form);
+
+
+    form.onsubmit = async function (e) {
+        e.preventDefault()
+
+        minProject.innerHTML = `
+        <div>${minProjectId}.</div>
+        <div class="customer_name">${Section.value}</div>
+        <div>
+            <img src="Image/2.Dashboard/Work Team/Omar.jpg" alt="">
+        </div>
+        <div>
+            <div class="progress-ringg" style="--percentage: 0;"></div>
+            <span class="snpah">%0</span>
+        </div>                    <div class="Active_Status"><span>Active</span></div>
+        <div>0h 0m</div>
+        <div>${form_Due_Date.value}</div>
+        <div>${form_Net_Profit.value}$</div>
+        <i class="fa-solid fa-x X"></i>
+    `
+    projectMinProjectContainer.appendChild(minProject)
+    form.remove();
+    }
+
 }
