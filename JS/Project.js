@@ -1,5 +1,5 @@
 import { getProjects, insertProject } from "./db.js";
-
+import { v4 as uuid } from "uuid"
 let Add_Project = document.querySelector(".Add_Project");
 let container_Project_all = document.querySelector(".container_Project_all")
 let counterClassBig = 1;
@@ -139,7 +139,7 @@ document.addEventListener("click", function (e) {
 
 function createProject(title, customer, date, profit) {
     // Main Project
-    const new_project_id = counterClassBig++
+    const new_project_id = uuid()
     const new_project = document.createElement("div")
     new_project.id = `big_Project${new_project_id}`
     new_project.className = "project";
@@ -228,8 +228,10 @@ const showHideMinProjects = (projectId) => {
 
 const addMinProject = (projectId) => {
     const projectMinProjectContainer = document.querySelector(`#big_Project${projectId} .min-projects`)
-    const minProjectId = projectMinProjectContainer.children.length + 1
+    const minProjectId = uuid()
+    const minProjectNum = projectMinProjectContainer.children.length + 1
     const minProject = document.createElement("div")
+    minProject.id = minProjectId
     minProject.classList.add("min_project");
 
 
@@ -310,7 +312,7 @@ const addMinProject = (projectId) => {
         e.preventDefault()
 
         minProject.innerHTML = `
-        <div>${minProjectId}.</div>
+        <div>${minProjectNum}.</div>
         <div class="customer_name">${Section.value}</div>
         <div>
             <img src="Image/2.Dashboard/Work Team/Omar.jpg" alt="">
