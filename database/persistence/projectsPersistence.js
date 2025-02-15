@@ -28,6 +28,7 @@ export async function updateProject(id, newInfo) {
     // doing this to make a new copy of the project to avoid subtle bugs
     // that rely on mutation.
     const newProjectWithUpdates = Object.assign({}, project, newInfo)
+    
     db.data.projects[db.data.projects.indexOf(project)] = newProjectWithUpdates
     await db.write()
     return newProjectWithUpdates
@@ -37,6 +38,6 @@ export async function deleteProject(projectID) {
     const project = await getProject(projectID)
     db.data.projects = db.data.projects.filter(project => project.id !== projectID)
     await db.write()
-    return project
+    return project.id
 }
 

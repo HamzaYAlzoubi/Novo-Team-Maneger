@@ -1,5 +1,6 @@
-import { getProjects, insertProject } from "./db.js";
+import * as db from "./db.js";
 import { v4 as uuid } from "uuid"
+
 let Add_Project = document.querySelector(".Add_Project");
 let container_Project_all = document.querySelector(".container_Project_all")
 let counterClassBig = 1;
@@ -9,33 +10,36 @@ let counter_min = 1;
 let add_minCounter = 1;
 
 
+// Intial load
 addEventListener("DOMContentLoaded", async () => { // fetches all projects once the dom loads
     // Loading time is bad but the problem seems to the site it self not the projects because they load immedatily
     // after eachother but the DOM takes time to be loaded. Further investigation is needed...
     try {
-        const projects = await getProjects()
+        const projects = await db.getProjects()
 
         projects.forEach(project => {
             const newProject = createProject(project.title, project.customer_name, project.date_due, project.profit)
-            container_Project_all.appendChild(newProject.dev)
+            container_Project_all.appendChild(newProject)
         })
     } catch (error) {
-        alert(error)
+        console.error(error)
+        // alert(error)
     }
 })
 
 
+// Add Projects Button
 Add_Project.onclick = async function () { // اضافة مشروع كبير
-    
+
+    // Create Submition Form
     let form = document.createElement("form");
     form.className = "project_form";
 
-    // ضفت رز للاغلاق
     let X = document.createElement("i");
     X.classList.add("fa-solid");
     X.classList.add("fa-x");
     X.classList.add("X");
-    
+
 
     let form_Project_name = document.createElement("input");
     form_Project_name.className = "form_Project_name";
@@ -106,36 +110,39 @@ Add_Project.onclick = async function () { // اضافة مشروع كبير
 
     document.body.appendChild(form);
 
+    // Close Form Button
+    form.addEventListener("click", function (e) {
+        if (e.target.classList.contains("X")) {
+            e.target.parentElement.remove();
+        }
+    });
 
+    // Inseart into DB
     form.onsubmit = async function (e) {
-        e.preventDefault() // مهم جدا جدا جدا : اذا بدك الفورم يبعث يا عمر امسح هذا السطر انا حاطه مشان ما تحدث الصفحة
+        e.preventDefault()
 
-        // insearting into the db
         try {
-            const new_project = createProject(form_Project_name.value,
-                form_Customer_name.value, form_Due_Date.value, form_Net_Profit.value)
-            await insertProject({
+            const new_project = createProject(form_Project_name.value, form_Customer_name.value, form_Due_Date.value, form_Net_Profit.value)
+
+            await db.insertProject({
                 id: new_project.id,
                 title: form_Project_name.value,
                 customer_name: form_Customer_name.value,
                 date_due: form_Due_Date.value,
-                profit: form_Net_Profit.value
+                profit: form_Net_Profit.value,
+                sub_projects: []
             })
 
-            container_Project_all.appendChild(new_project.dev)
+            container_Project_all.appendChild(new_project)
 
             form.remove();
         } catch (error) {
-            alert(error)
+            console.error(error)
+            // alert(error)
         }
     }
 
 }
-document.addEventListener("click", function (e) {
-    if (e.target.classList.contains("X")) {
-        e.target.parentElement.remove();
-    }
-  });
 
 function createProject(title, customer, date, profit) {
     // Main Project
@@ -175,7 +182,7 @@ function createProject(title, customer, date, profit) {
         <i class="fa-solid fa-x X"></i>
     `
     new_project.appendChild(projectData)
-    
+
     // Sub Project
     const minProjectsContainer = document.createElement("div")
     minProjectsContainer.className = "min-projects-container"
@@ -195,15 +202,28 @@ function createProject(title, customer, date, profit) {
             `
     new_project.appendChild(minProjectsContainer)
 
+    // show/hide subproject button
     projectData.addEventListener("click", () => showHideMinProjects(new_project_id))
-    //عمر: إذا بدك خلي الحالة الإفتراضية أنه يكون مخفي أحسن
+    // TODO: خلي الحالة الإفتراضية أنه يكون مخفي
 
-    //حمزة: اذا انت بتعرف تعملها اعملها
-
+    // Add Subproject Button
     const add_min_button = new_project.querySelector(`.add_min`)
     add_min_button.addEventListener("click", () => addMinProject(new_project_id))
 
-    return { id: new_project_id, dev: new_project }
+    // Remove Project Button
+    projectData.addEventListener("click", async function (e) {
+        if (e.target.classList.contains("X")) {
+            const targetProject = e.target.parentElement.parentElement
+            try {
+                const itemID = await db.removeProject(targetProject.id)
+                if (itemID) document.getElementById(itemID).remove()
+            } catch (error) {
+                console.error(error)
+            }
+        }
+    });
+
+    return new_project
 }
 
 
@@ -234,8 +254,6 @@ const addMinProject = (projectId) => {
     minProject.id = minProjectId
     minProject.classList.add("min_project");
 
-
-
     let form = document.createElement("form");
     form.className = "project_form";
 
@@ -243,9 +261,9 @@ const addMinProject = (projectId) => {
     X.classList.add("fa-solid");
     X.classList.add("fa-x");
     X.classList.add("X");
-    
 
-    let Section = document.createElement("input");
+
+    let Section = document.createElement("input"); // يا رجل هذه أسماء؟!
     Section.className = "form_Project_name";
     Section.setAttribute("type", "text");
     Section.setAttribute("placeholder", "Section");
@@ -311,6 +329,26 @@ const addMinProject = (projectId) => {
     form.onsubmit = async function (e) {
         e.preventDefault()
 
+        try {
+            const projects = await db.getProjects()
+            const current_sub_projects = projects[projectId - 1].sub_projects
+            console.log(current_sub_projects)
+
+            current_sub_projects.push({
+                id: minProjectId,
+                customer_name: Section.value,
+                date: form_Due_Date.value,
+                profit: form_Net_Profit.value
+            })
+
+            console.log(current_sub_projects)
+            const newProject = await db.updateProject(`big_Project${projectId}`, { sub_projects: current_sub_projects })
+            console.log(newProject)
+        } catch (error) {
+            console.log(error)
+        }
+
+
         minProject.innerHTML = `
         <div>${minProjectNum}.</div>
         <div class="customer_name">${Section.value}</div>
@@ -326,8 +364,8 @@ const addMinProject = (projectId) => {
         <div>${form_Net_Profit.value}$</div>
         <i class="fa-solid fa-x X"></i>
     `
-    projectMinProjectContainer.appendChild(minProject)
-    form.remove();
+        projectMinProjectContainer.appendChild(minProject)
+        form.remove();
     }
 
 }
