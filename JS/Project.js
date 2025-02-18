@@ -1,6 +1,8 @@
 import * as db from "./db.js";
 import { v4 as uuid } from "uuid"
 
+// upon quick research I found that ids shouldn't usually be connect in the front and 
+// backend. But for our case it makes it a little easier and is good enough.
 let Add_Project = document.querySelector(".Add_Project");
 let container_Project_all = document.querySelector(".container_Project_all")
 let counterClassBig = 1;
@@ -148,7 +150,7 @@ function createProject(title, customer, date, profit) {
     // Main Project
     const new_project_id = uuid()
     const new_project = document.createElement("div")
-    new_project.id = `big_Project${new_project_id}`
+    new_project.id = `big_Project_${new_project_id}`
     new_project.className = "project";
 
     let X = document.createElement("i");
@@ -157,7 +159,7 @@ function createProject(title, customer, date, profit) {
     X.classList.add("X");
 
     const projectData = document.createElement("div")
-    projectData.className = `big_Project big_Project${new_project_id}`
+    projectData.className = `big_Project big_Project_${new_project_id}`
     projectData.innerHTML = `
         <i class="fa-solid fa-caret-right"></i>
         <i class="fa-solid fa-caret-down"></i>
@@ -230,10 +232,10 @@ function createProject(title, customer, date, profit) {
 const showHideMinProjects = (projectId) => {
 
 
-    const project = document.querySelector(`#big_Project${projectId}`)
+    const project = document.querySelector(`#big_Project_${projectId}`)
     const rIcon = project.querySelector(".fa-caret-right")
     const dIcon = project.querySelector(".fa-caret-down")
-    const minProjectsContainer = project.querySelector(`#big_Project${projectId} .min-projects-container`)
+    const minProjectsContainer = project.querySelector(`#big_Project_${projectId} .min-projects-container`)
     if (project.classList.contains("hidden")) {
         minProjectsContainer.style.display = "block"
         dIcon.style.display = "block"
@@ -247,7 +249,7 @@ const showHideMinProjects = (projectId) => {
 }
 
 const addMinProject = (projectId) => {
-    const projectMinProjectContainer = document.querySelector(`#big_Project${projectId} .min-projects`)
+    const projectMinProjectContainer = document.querySelector(`#big_Project_${projectId} .min-projects`)
     const minProjectId = uuid()
     const minProjectNum = projectMinProjectContainer.children.length + 1
     const minProject = document.createElement("div")
@@ -263,7 +265,7 @@ const addMinProject = (projectId) => {
     X.classList.add("X");
 
 
-    let Section = document.createElement("input"); // يا رجل هذه أسماء؟!
+    let Section = document.createElement("input");
     Section.className = "form_Project_name";
     Section.setAttribute("type", "text");
     Section.setAttribute("placeholder", "Section");
@@ -330,9 +332,11 @@ const addMinProject = (projectId) => {
         e.preventDefault()
 
         try {
-            const projects = await db.getProjects()
-            const current_sub_projects = projects[projectId - 1].sub_projects
-            console.log(current_sub_projects)
+            const currMainProject = await db.getProject(`big_Project_${projectId}`)
+            console.log(projectId);
+                
+        
+            const current_sub_projects = currMainProject.sub_projects
 
             current_sub_projects.push({
                 id: minProjectId,
@@ -342,8 +346,8 @@ const addMinProject = (projectId) => {
             })
 
             console.log(current_sub_projects)
-            const newProject = await db.updateProject(`big_Project${projectId}`, { sub_projects: current_sub_projects })
-            console.log(newProject)
+            // const newProject = await db.updateProject(`big_Project_${projectId}`, { sub_projects: current_sub_projects })
+            // console.log(newProject)
         } catch (error) {
             console.log(error)
         }

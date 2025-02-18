@@ -18,6 +18,13 @@ export async function getProjects() {
     return data
 }
 
+export async function getProject(projectID) {
+    const response = await fetch(`http://localhost:3232/api/projects/get/${projectID}`)
+    const data = await response.json()
+
+    return data
+}
+
 export async function removeProject(id) {
     const response = await fetch(`http://localhost:3232/api/projects/delete/${id}`, { method: "DELETE" })
     const data = await response.json()

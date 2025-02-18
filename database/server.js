@@ -34,6 +34,17 @@ app.get('/api/projects/get', async (req, res) => {
     }
 })
 
+app.get('/api/projects/get/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        const result = await projects.getProject(id)
+        res.status(200).send(result)
+    } catch (error) {
+        console.log(error)
+        res.status(500).send("Something went wrong...")
+    }
+})
+
 app.put('/api/projects/put/:id', async (req, res) => {
     try {
         // I have a feeling that this is very unsafe, but good enough
