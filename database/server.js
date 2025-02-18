@@ -34,14 +34,10 @@ app.get('/api/projects/get', async (req, res) => {
     }
 })
 
-app.put('/api/projects/update', async (req, res) => {
+app.get('/api/projects/get/:id', async (req, res) => {
     try {
-        const userInput = {
-            "title": req.body.title,
-            "devs": req.body.devs
-        }
-
-        const result = await projects.updateProject(req.body.id, userInput)
+        const id = req.params.id
+        const result = await projects.getProject(id)
         res.status(200).send(result)
     } catch (error) {
         console.log(error)
@@ -49,11 +45,41 @@ app.put('/api/projects/update', async (req, res) => {
     }
 })
 
-app.delete('/api/projects/delete', async (req, res) => {
+app.put('/api/projects/put/:id', async (req, res) => {
     try {
-        const id = req.body.id
-        const result = await projects.deleteProject(id)
+        // I have a feeling that this is very unsafe, but good enough
+        const result = await projects.updateProject(req.params.id, req.body)
+        console.log(result);
+        
         res.status(200).send(result)
+    } catch (error) {
+        console.error("Endpoint Error:" + error)
+        res.status(500).send("Something went wrong...")
+    }
+})
+
+// Think about it, if it's worth it or not
+
+// app.patch('/api/projects/patch/:id', async (req, res) => {
+//     try {
+//         const userInput = {
+//             "title": req.body.title,
+//             "devs": req.body.devs
+//         }
+
+//         const result = await projects.updateProject(req.body.id, userInput)
+//         res.status(200).send(result)
+//     } catch (error) {
+//         console.log(error)
+//         res.status(500).send("Something went wrong...")
+//     }
+// })
+
+app.delete('/api/projects/delete/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        const result = await projects.deleteProject(id)
+        res.status(200).json(result)
     } catch (error) {
         console.log(error)
         res.status(500).send("Something went wrong...")
